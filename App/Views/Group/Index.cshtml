@@ -1,0 +1,65 @@
+﻿@model IEnumerable<App.Domain.Entities.Post.Group>
+@{
+    ViewData["Title"] = "لیست گروه ها";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>@ViewData["Title"]</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <a asp-route="GetDashboard">داشبورد</a>
+            <li>
+                @ViewData["Title"]
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <a asp-route="GetCreateGroup" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>  افزودن گروه جدید</a>
+                </div>
+                <div class="ibox-title">
+                    <h5>@ViewData["Title"]</h5>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>
+                                #
+                            </th>
+                            <th>
+                                عنوان گروه
+                            </th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @{ var i = 1;}
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="pt-20">
+                                    @(i++)
+                                </td>
+                                <td class="pt-20">
+                                    @Html.DisplayFor(modelItem => item.GroupTitle)
+                                </td>
+                                <td class="pt-15">
+                                    <a asp-route="GetEditGroup" asp-route-id="@item.GroupId" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> ویرایش</a>
+                                    <a asp-route="GetRemoveGroup" asp-route-id="@item.GroupId" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> حذف</a>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,39 @@
+﻿@model App.Domain.Entities.Slider.Slider
+
+@{
+    ViewData["Title"] = "حذف اسلایدر";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>@ViewData["Title"]</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <a asp-route="GetDashboard">داشبورد</a>
+            <li>
+                @ViewData["Title"]
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>آیا از حذف این پست اطمینان دارید؟</h5>
+                </div>
+                <div class="ibox-content">
+                    <p class="text-20">آیا از حذف اسلایدر <strong>"@Model.SliderName"</strong> اطمینان دارید؟</p>
+                    <form asp-route="PostSliderPost">
+                        <input type="hidden" asp-for="SliderId" />
+                        <input type="hidden" asp-for="SliderName" />
+                        <input type="submit" value="تائید حذف" class="btn btn-warning btn-sm" />
+                        <a asp-route="GetSliders" class="btn btn-danger btn-sm">بازگشت</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<App.Domain.Entities.Post.Post>
+<div class="single-categories-1">
+    <h3 class="blog-categorie-title">جدیدترین مطالب</h3>
+    <div class="single-categories-blog">
+        <ul>
+            @foreach (var post in Model)
+            {
+                <li><a href="/a/@post.ShortUrl">@Html.Raw(post.PostTitle)</a></li>
+            }
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+
+.line-height-25 {
+    line-height: 25px;
+}
+
+.text-size-14 {
+    font-size: 14px;
+}
+.text-12 {
+    font-size: 12px !important;
+}
+
+.rtl {
+    direction: rtl !important;
+}
+
+.tabs-categorys-list li a.active::after {
+    width: 100% !important
+}
+.secton-title h2::after {
+    width: 100% !important
+}
+.single-categories-1 .blog-categorie-title::after {
+    width: 100% !important
+}
+
+.full-width {
+    width: 100% !important
+}
+.ltr {
+    direction: ltr !important;
+}
+.mini-input {
+    width: 50px !important
+}

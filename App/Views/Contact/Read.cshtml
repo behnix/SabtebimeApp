@@ -1,0 +1,61 @@
+﻿@model App.Domain.Entities.Contact.Contact
+@{
+    ViewData["Title"] = "خواندن پسام";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>@ViewData["Title"]</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <a asp-route="GetDashboard">داشبورد</a>
+            <li>
+                @ViewData["Title"]
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@ViewData["Title"]</h5>
+                </div>
+                <div class="ibox-content">
+                    <form asp-route="PostReadContact">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="PostedOn" />
+                        <input type="hidden" asp-for="FirstName" />
+                        <input type="hidden" asp-for="LastName" />
+                        <input type="hidden" asp-for="Subject" />
+                        <input type="hidden" asp-for="Email" />
+                        <input type="hidden" asp-for="Text" />
+                        <input type="hidden" asp-for="IsRead" />
+                        <div class="form-group">
+                            <label class="control-label">@Model.FirstName</label> <label class="control-label">@Model.LastName</label> (@Model.Email)
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Subject" class="control-label"></label> : <label class="control-label text-danger"> @Model.Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea disabled="disabled" class="form-control" rows="4">@Model.Text</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Answer" class="control-label"></label>
+                            <textarea asp-for="Answer" rows="3" class="form-control"></textarea>
+                            <span asp-validation-for="Answer" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="ارسال پاسخ" class="btn btn-primary btn-sm" />
+                            <a asp-route="GetRemoveContact" asp-route-id="@Model.Id" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> حذف</a>
+                            <a asp-route="GetNewContact" class="btn btn-warning btn-sm">بازگشت</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

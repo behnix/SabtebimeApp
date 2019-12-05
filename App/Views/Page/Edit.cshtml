@@ -1,0 +1,111 @@
+﻿@model App.Domain.Entities.Page.Page
+@{
+    ViewData["Title"] = "ویرایش صفحه";
+    var groupList = ViewData["Groups"] as Dictionary<int, string>;
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>@ViewData["Title"]</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <a asp-route="GetDashboard">داشبورد</a>
+            <li>
+                @ViewData["Title"]
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@ViewData["Title"]</h5>
+                </div>
+                <div class="ibox-content">
+                    <form asp-route="PostEditPage">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="PageId" />
+                        <input type="hidden" asp-for="PageCreateDate" />
+                        <input type="hidden" asp-for="PageVisit" />
+                        <input type="hidden" asp-for="PageShortUrl" />
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="PageTitle" class="control-label"></label>
+                                    <input asp-for="PageTitle" class="form-control" />
+                                    <span asp-validation-for="PageTitle" class="text-danger"></span>
+                                </div>
+                                <h3 class="text-danger text-16">اختصاصی برای سئو</h3>
+                                <div class="form-group">
+                                    <label asp-for="PageTitleInBrowser" class="control-label"></label>
+                                    <input asp-for="PageTitleInBrowser" class="form-control" />
+                                    <span asp-validation-for="PageTitleInBrowser" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="PageDescriptionForSearchEngines" class="control-label"></label>
+                                    <textarea asp-for="PageDescriptionForSearchEngines" rows="3" class="form-control"></textarea>
+                                    <span asp-validation-for="PageDescriptionForSearchEngines" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="PageContent" class="control-label"></label>
+                                    <textarea asp-for="PageContent" class="form-control" rows="10"></textarea>
+                                    <span asp-validation-for="PageContent" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="RelatedPostGroup" class="control-label"></label>
+                                    <select name="RelatedPostGroup" class="form-control">
+                                        @if (Model.RelatedPostGroup == 0)
+                                        {
+                                            <option value="0" selected="selected">به هیچ گروهی مرتبط نیست</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="0">به هیچ گروهی مرتبط نیست</option>
+                                        }
+                                        @foreach (var item in groupList.ToList())
+                                        {
+                                            if (Model.RelatedPostGroup == item.Key)
+                                            {
+                                                <option value="@item.Key" selected="selected">@item.Value</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="@item.Key">@item.Value</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="QuantityPostInPage" class="control-label"></label>
+                                    <input asp-for="QuantityPostInPage" class="form-control" />
+                                    <span asp-validation-for="QuantityPostInPage" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <input type="submit" value="ثبت تغییرات" class="btn btn-primary btn-sm" />
+                            <a asp-route="GetPages" class="btn btn-danger btn-sm">بازگشت</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('PageContent', {
+            customConfig: '/adminAssets/js/Config.js'
+        });
+        CKEDITOR.config.allowedContent = true;
+    </script>
+}

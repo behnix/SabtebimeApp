@@ -1,0 +1,106 @@
+﻿@model App.Domain.Entities.Setting.Setting
+@{
+    ViewData["Title"] = "صفحه اصلی";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>@ViewData["Title"]</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <a asp-route="GetDashboard">داشبورد</a>
+            <li>
+                @ViewData["Title"]
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@ViewData["Title"]</h5>
+                </div>
+                <div class="ibox-content">
+                    <form asp-route="PostAbout">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="SettingId" />
+                        <input type="hidden" asp-for="SiteEmail" />
+                        <input type="hidden" asp-for="ContactTitle" />
+                        <input type="hidden" asp-for="ContactDescription" />
+                        <input type="hidden" asp-for="TermsTitle" />
+                        <input type="hidden" asp-for="TermsDescription" />
+                        <input type="hidden" asp-for="FaqTitle" />
+                        <input type="hidden" asp-for="FaqDescription" />
+                        <input type="hidden" asp-for="AboutUsTitle" />
+                        <input type="hidden" asp-for="AboutUsDescription" />
+
+                        <div class="form-group">
+                            <label asp-for="SiteNameInEnglish" class="control-label"></label>
+                            <input asp-for="SiteNameInEnglish" class="form-control" />
+                            <span asp-validation-for="SiteNameInEnglish" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SiteName" class="control-label"></label>
+                            <input asp-for="SiteName" class="form-control" />
+                            <span asp-validation-for="SiteName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SiteDescription" class="control-label"></label>
+                            <textarea asp-for="SiteDescription" rows="3" class="form-control"></textarea>
+                            <span asp-validation-for="SiteDescription" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Slogan1" class="control-label"></label>
+                            <input asp-for="Slogan1" class="form-control" />
+                            <span asp-validation-for="Slogan1" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Slogan2" class="control-label"></label>
+                            <input asp-for="Slogan2" class="form-control" />
+                            <span asp-validation-for="Slogan2" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="OfferTitle" class="control-label"></label>
+                            <input asp-for="OfferTitle" class="form-control" />
+                            <span asp-validation-for="OfferTitle" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="OfferText" class="control-label"></label>
+                            <textarea asp-for="OfferText" rows="3" class="form-control"></textarea>
+                            <span asp-validation-for="OfferText" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="RecomendedTitle" class="control-label"></label>
+                            <input asp-for="RecomendedTitle" class="form-control" />
+                            <span asp-validation-for="RecomendedTitle" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="RecomendedText" class="control-label"></label>
+                            <textarea asp-for="RecomendedText" rows="3" class="form-control"></textarea>
+                            <span asp-validation-for="RecomendedText" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="QuantityPostInIndex" class="control-label"></label>
+                            <input asp-for="QuantityPostInIndex" class="form-control" />
+                            <span asp-validation-for="QuantityPostInIndex" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SiteCopyRightText" class="control-label"></label>
+                            <input asp-for="SiteCopyRightText" class="form-control" />
+                            <span asp-validation-for="SiteCopyRightText" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="ثبت تغییرات" class="btn btn-primary btn-sm" />
+                            <a asp-route="GetDashboard" class="btn btn-danger btn-sm">بازگشت</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

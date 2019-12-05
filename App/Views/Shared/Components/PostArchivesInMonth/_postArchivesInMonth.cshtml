@@ -1,0 +1,13 @@
+﻿@using App.Core.Convertors
+@model IEnumerable<DateTime>
+<div class="single-categories-1">
+    <h3 class="blog-categorie-title">آرشیو بلاگ</h3>
+    <div class="single-categories-blog">
+        <ul>
+            @foreach (var archive in Model)
+            {
+                <li><a href="/blog?pageId=1&year=@archive.ToShamsiParameter().Year&month=@archive.ToShamsiParameter().Month">@Html.Raw(archive.ToLongShamsiArchive())</a></li>
+            }
+        </ul>
+    </div>
+</div>

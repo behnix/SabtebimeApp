@@ -1,0 +1,59 @@
+﻿@using App.Services.Identity.Managers
+@model App.DTOs.Account.LoginAccount
+@inject AppSignInManager SignInManager
+@{
+    ViewData["Title"] = "ورود به ناحیه کاربری";
+}
+
+<div class="pageSection">
+    <div class="ls-container">
+        <div class="pageSection-title ls-center">@ViewData["Title"]</div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <form asp-route="PostLogin" asp-route-returnTo="@ViewData["returnTo"]">
+
+                        <div class="form-group ls-right">
+                            <input asp-for="UserName" class="form-control" placeholder="نام کاربری">
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group ls-right">
+                            <input asp-for="Password" class="form-control" placeholder="کلمه عبور">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group form-check ls-right">
+                            <input asp-for="RememberMe" class="form-check-input">
+                            <label class="form-check-label pr-3" for="RememberMe">مرا به خاطر بسپار</label>
+                        </div>
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="ls-center ls-btnContainer ls-right">
+                            <button type="submit" class="btn btn-success">ورود به ناحیه کاربری</button>
+                            <div class="m-2 btn btn-warning"><a asp-route="GetForgetPassword">کلمه عبور خود را فراموش کرده ام</a></div>
+
+                        </div>
+                    </form>
+                    @{
+                        var schemes = await SignInManager.GetExternalAuthenticationSchemesAsync();
+                        var providers = schemes.ToList();
+
+                        <form asp-route="PostExternalLogin" asp-route-returnTo="@ViewData["returnTo"]">
+                            @foreach (var provider in providers)
+                            {
+                                <button class="btn btn-danger" name="provider" value="@provider.Name">ورود از طریق @provider.Name</button>
+                            }
+                        </form>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

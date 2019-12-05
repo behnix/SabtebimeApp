@@ -1,0 +1,41 @@
+﻿@model App.Domain.Entities.Post.Group
+@{
+    ViewData["Title"] = "حذف گروه";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>@ViewData["Title"]</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+            <a asp-route="GetDashboard">داشبورد</a>
+            <li>
+                @ViewData["Title"]
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@ViewData["Title"]</h5>
+                </div>
+                <div class="ibox-content">
+                    <p class="text-20">آیا از حذف گروه <strong>"@Model.GroupTitle"</strong> اطمینان دارید؟</p>
+                    <form asp-route="PostRemoveGroup">
+                        <input type="hidden" asp-for="GroupId" />
+                        <input type="hidden" asp-for="GroupTitle" />
+                        <input type="submit" value="تائید حذف" class="btn btn-warning btn-sm" />
+                        <a asp-route="GetGroups" class="btn btn-danger btn-sm">بازگشت</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

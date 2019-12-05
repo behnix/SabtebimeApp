@@ -1,0 +1,73 @@
+﻿@model App.Domain.Entities.Post.Post
+
+@{
+    ViewData["Title"] = "حذف پست";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>@ViewData["Title"]</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <a asp-route="GetDashboard">داشبورد</a>
+            <li>
+                @ViewData["Title"]
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>آیا از حذف این پست اطمینان دارید؟</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-3 text-center ">
+                            <img src="/assets/posts/thumb/@Model.PostImage" alt="@Model.PostTitle" />
+                        </div>
+                        <div class="col-sm-12 col-md-9">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>
+                                        @Html.DisplayNameFor(model => model.PostTitle) :
+                                        @Html.DisplayFor(model => model.PostTitle)
+                                    </p>
+                                    <p>
+                                        @Html.DisplayNameFor(model => model.PostDescription) :
+                                        @Html.DisplayFor(model => model.PostDescription)
+                                    </p>
+                                    <p>
+                                        @Html.DisplayNameFor(model => model.User) :
+                                        @Html.DisplayFor(model => model.User.FirstName) @Html.DisplayFor(model => model.User.LastName)
+                                    </p>
+                                    <p>
+                                        @Html.DisplayNameFor(model => model.Group) :
+                                        @Html.DisplayFor(model => model.Group.GroupTitle)
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <br />
+                                    <form asp-route="PostRemovePost">
+                                        <input type="hidden" name="PostId" value="@Model.PostId" />
+                                        <input type="submit" value="بله پست حذف شود؟" class="btn btn-danger btn-sm" />
+                                        <a asp-route="GetPosts" class="btn btn-info btn-sm">بازگشت</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

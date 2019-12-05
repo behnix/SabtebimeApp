@@ -1,0 +1,77 @@
+﻿@using App.Core.Convertors
+@using App.Services
+@model App.DTOs.Manager.RolePermission
+@{
+    ViewData["Title"] = "دسترسی های نقش ها";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>@ViewData["Title"]</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <a asp-route="GetDashboard">داشبورد</a>
+            </li>
+            <li>
+                @ViewData["Title"]
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@ViewData["Title"]</h5>
+                </div>
+                <div class="ibox-content">
+
+                    <form asp-route="PostRolePermissions">
+
+                        <input asp-for="RoleId" type="hidden" value="@Model.Role.Id" />
+
+                        <ul class="list-group">
+
+                            @foreach (var action in Model.Actions)
+                            {
+                                var displayName = string.IsNullOrEmpty(action.ActionDisplayName) ? $"{action.ControllerName}:{action.ActionName}" : action.ActionDisplayName;
+
+                                var isChecked = Model.Role.Claims.Any(x => x.ClaimType == ConstantPolicies.DynamicPermission && x.ClaimValue == action.Key);
+
+                                var givenOnClaim = Model.Role
+                                    .Claims.SingleOrDefault(x => x.ClaimType == ConstantPolicies.DynamicPermission && x.ClaimValue == action.Key);
+
+                            <li class="list-group-item">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <button type="button" class="btn">
+                                        <input type="checkbox" name="Keys" value="@action.Key" @(isChecked ? "checked" : "") style="margin: 0 !important; position: relative; top: 3px"/>
+                                    </button>
+                                    <button type="button" class="btn btn-danger">@displayName</button>
+                                    @if (givenOnClaim != null)
+                                    {
+                                        <button type="button" class="btn btn-primary">مجوز داده شده در تاریخ : @givenOnClaim.GivenOn.ToShamsi()</button>
+                                    }
+                                </div>
+                            </li>
+                            }
+
+                        </ul>
+
+
+                        <hr />
+
+                        <button type="submit" class="btn btn-success">بروز رسانی</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+

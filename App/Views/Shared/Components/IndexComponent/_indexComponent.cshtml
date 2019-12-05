@@ -1,0 +1,73 @@
+﻿@model App.Domain.Entities.Setting.Setting
+@if (!string.IsNullOrEmpty(Model.OfferTitle))
+{
+    if (!string.IsNullOrEmpty(Model.OfferText))
+    {
+        <div class="offerSection">
+            <div class="ls-container">
+                <div class="offerSection-title">
+                    <h3>@Html.Raw(Model.OfferTitle)</h3>
+                </div>
+                <div class="offerSection-content">
+                    @Html.Raw(Model.OfferText)
+                </div>
+            </div>
+        </div>
+    }
+}
+@if (!string.IsNullOrEmpty(Model.Service1Icon) || !string.IsNullOrEmpty(Model.Service2Icon) || !string.IsNullOrEmpty(Model.Service3Icon) || !string.IsNullOrEmpty(Model.Service4Icon))
+{<div class="serviceSection">
+        <div class="ls-container">
+            @if (!string.IsNullOrEmpty(Model.Service1Icon))
+            {
+                <div class="serviceSection-item">
+                    <i class="@Model.Service1Icon fa-5x"></i>
+                    <h4>@Html.Raw(Model.Service1Title)</h4>
+                    <a href="/p/@Html.Raw(Model.Service1Url)" class="ls-btn">بیشتر بدانید</a>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.Service2Icon))
+            {
+                <div class="serviceSection-item">
+                    <i class="@Model.Service2Icon fa-5x"></i>
+                    <h4>@Html.Raw(Model.Service2Title)</h4>
+                    <a href="/p/@Html.Raw(Model.Service2Url)" class="ls-btn">بیشتر بدانید</a>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.Service3Icon))
+            {
+                <div class="serviceSection-item">
+                    <i class="@Model.Service3Icon fa-5x"></i>
+                    <h4>@Html.Raw(Model.Service3Title)</h4>
+                    <a href="/p/@Html.Raw(Model.Service3Url)" class="ls-btn">بیشتر بدانید</a>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.Service4Icon))
+            {
+                <div class="serviceSection-item">
+                    <i class="@Model.Service4Icon fa-5x"></i>
+                    <h4>@Html.Raw(Model.Service4Title)</h4>
+                    <a href="/p/@Html.Raw(Model.Service4Url)" class="ls-btn">بیشتر بدانید</a>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.RecomendedTitle))
+{
+    if (!string.IsNullOrEmpty(Model.RecomendedText))
+    {
+        <div class="recomendSection">
+            <div class="ls-container">
+                <div class="recomendSection-title">
+                    <h3>@Html.Raw(Model.RecomendedTitle)</h3>
+                </div>
+                <div class="recomendSection-content">
+                    @Html.Raw(Model.RecomendedText)
+                </div>
+            </div>
+        </div>
+    }
+}
+

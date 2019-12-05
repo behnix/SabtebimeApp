@@ -1,0 +1,79 @@
+﻿@using App.Core.Convertors
+@model IEnumerable<App.Domain.Identity.UserLogin>
+@{
+    ViewData["Title"] = "لاگین های کاربر";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>@ViewData["Title"]</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <a asp-route="GetDashboard">داشبورد</a>
+            </li>
+            <li>
+                @ViewData["Title"]
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@ViewData["Title"]</h5>
+                </div>
+                <div class="ibox-content">
+                    @if (Model.Any())
+                    {
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">
+                                        #
+                                    </th>
+                                    <th class="text-center">
+                                        ورود از
+                                    </th>
+                                    <th class="text-center">
+                                        نام سایت
+                                    </th>
+                                    <th class="text-center">
+                                        زمان لاگین
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ var i = 1;}
+                                @foreach (var login in Model)
+                                {
+                                    <tr>
+                                        <td class="pt-20 text-center">
+                                            @(i++)
+                                        </td>
+                                        <td class="pt-20 text-center">
+                                            @login.LoginProvider
+                                        </td>
+                                        <td class="pt-20 text-center">
+                                            @login.ProviderDisplayName
+                                        </td>
+                                        <td class="pt-20 text-center">
+                                            @login.LoggedOn.ToShamsi()
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>کاربر دارای هیچ ورودی نیست</p>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

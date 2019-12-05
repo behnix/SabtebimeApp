@@ -1,0 +1,87 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
+    <PackageReference Include="System.Drawing.Common" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Core\Convertors\" />
+    <Folder Include="Core\Extensions\" />
+    <Folder Include="Core\Generators\" />
+    <Folder Include="Core\Middlewares\" />
+    <Folder Include="Core\Pay\" />
+    <Folder Include="Core\Securities\" />
+    <Folder Include="Core\Senders\" />
+    <Folder Include="Core\Uploader\" />
+    <Folder Include="DataProtection\" />
+    <Folder Include="Data\" />
+    <Folder Include="Domain\Identity\" />
+    <Folder Include="DTOs\Account\" />
+    <Folder Include="DTOs\Manager\User\" />
+    <Folder Include="keyring\" />
+    <Folder Include="Models\" />
+    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Services\Identity\Managers\" />
+    <Folder Include="Services\Identity\Stores\" />
+    <Folder Include="Services\Identity\Validators\" />
+    <Folder Include="Views\Account\" />
+    <Folder Include="wwwroot\adminAssets\css\" />
+    <Folder Include="wwwroot\adminAssets\css\patterns\" />
+    <Folder Include="wwwroot\adminAssets\font-awesome\" />
+    <Folder Include="wwwroot\adminAssets\font-awesome\css\" />
+    <Folder Include="wwwroot\adminAssets\font-awesome\fonts\" />
+    <Folder Include="wwwroot\adminAssets\fonts\BBCNasim\" />
+    <Folder Include="wwwroot\adminAssets\fonts\BKoodak\" />
+    <Folder Include="wwwroot\adminAssets\fonts\BNazanin\" />
+    <Folder Include="wwwroot\adminAssets\fonts\BYekan\" />
+    <Folder Include="wwwroot\adminAssets\fonts\DriodArabicNaskh\" />
+    <Folder Include="wwwroot\adminAssets\fonts\DriodArabicNaskh\Bold\" />
+    <Folder Include="wwwroot\adminAssets\fonts\DriodArabicNaskh\Regular\" />
+    <Folder Include="wwwroot\adminAssets\fonts\DroidArabicKufi\" />
+    <Folder Include="wwwroot\adminAssets\fonts\DroidArabicKufi\Bold\" />
+    <Folder Include="wwwroot\adminAssets\fonts\DroidArabicKufi\Regular\" />
+    <Folder Include="wwwroot\adminAssets\img\" />
+    <Folder Include="wwwroot\adminAssets\js\demo\" />
+    <Folder Include="wwwroot\adminAssets\js\plugins\" />
+    <Folder Include="wwwroot\adminAssets\js\plugins\metisMenu\" />
+    <Folder Include="wwwroot\adminAssets\js\plugins\slimscroll\" />
+    <Folder Include="wwwroot\adminAssets\videos\" />
+    <Folder Include="wwwroot\assets\avatars\" />
+    <Folder Include="wwwroot\assets\brands\" />
+    <Folder Include="wwwroot\assets\categories\image\" />
+    <Folder Include="wwwroot\assets\categories\thumb\" />
+    <Folder Include="wwwroot\assets\logo\" />
+    <Folder Include="wwwroot\assets\posts\image\" />
+    <Folder Include="wwwroot\assets\posts\thumb\" />
+    <Folder Include="wwwroot\assets\products\img\" />
+    <Folder Include="wwwroot\assets\sliders\" />
+    <Folder Include="wwwroot\fonts\" />
+    <Folder Include="wwwroot\fonts\webfonts\" />
+    <Folder Include="wwwroot\lib\bootstrap\" />
+    <Folder Include="wwwroot\lib\bootstrap\dist\" />
+    <Folder Include="wwwroot\lib\bootstrap\dist\css\" />
+    <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
+    <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
+    <Folder Include="wwwroot\lib\jquery-validation\" />
+    <Folder Include="wwwroot\lib\jquery-validation\dist\" />
+    <Folder Include="wwwroot\lib\jquery\" />
+    <Folder Include="wwwroot\lib\jquery\dist\" />
+    <Folder Include="wwwroot\scss\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\_CookieConsentPartial.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+  </ItemGroup>
+
+</Project>

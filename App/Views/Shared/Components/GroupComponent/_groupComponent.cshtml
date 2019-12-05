@@ -1,0 +1,12 @@
+﻿@model IEnumerable<App.Domain.Entities.Post.Group>
+<div class="single-categories-1">
+    <h3 class="blog-categorie-title">دسته بندی ها</h3>
+    <div class="single-categories-blog">
+        <ul>
+            @foreach (var group in Model)
+            {
+                <li><a href="#">@Html.Raw(group.GroupTitle)</a></li>
+            }
+        </ul>
+    </div>
+</div>

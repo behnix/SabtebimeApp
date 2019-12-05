@@ -1,0 +1,68 @@
+﻿@model App.DTOs.ContactUs.ContactUs
+@{
+    ViewData["Title"] = "تماس با ما";
+}
+
+<div class="pageSection">
+    <div class="ls-container">
+        <div class="pageSection-title ls-center">@ViewData["Title"]</div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8 formInfo">
+                    <form asp-route="PostContact">
+                        <input type="hidden" asp-for="Contact.Answer" value="" />
+                        <div class="form-group ls-right">
+                            <input asp-for="Contact.FirstName" class="form-control" placeholder="نام *">
+                            <span asp-validation-for="Contact.FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group ls-right">
+                            <input asp-for="Contact.LastName" class="form-control" placeholder="نام خانوادگی *">
+                            <span asp-validation-for="Contact.LastName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group ls-right">
+                            <input asp-for="Contact.Subject" class="form-control" placeholder="موضوع *">
+                            <span asp-validation-for="Contact.Subject" class="text-danger"></span>
+                        </div>
+                        <div class="form-group ls-right">
+                            <input asp-for="Contact.Email" class="form-control" placeholder="آدرس ایمیل *">
+                            <span asp-validation-for="Contact.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group ls-right">
+                            <textarea asp-for="Contact.Text" type="text" class="form-control" placeholder="متن پیام *"></textarea>
+                            <span asp-validation-for="Contact.Text" class="text-danger"></span>
+                        </div>
+                        <div class="captchaSection">
+                            <input type="text" name="res" class="form-control" placeholder="سوال امنیتی : @ViewBag.second @Html.Raw(ViewBag.operators) @ViewBag.first =" />
+                        </div>
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="ls-center ls-btnContainer ls-right">
+                            <button type="submit" class="btn btn-success">ارسال پیام</button>
+                            <p class="form-messege pt-3 text-success">@ViewBag.Message</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4 contactInfo">
+                    <div class="contactInfo-address">آدرس:</div>
+                    <p>@Html.Raw(Model.Setting.SiteAddress)</p>
+                    <div class="contactInfo-details">
+                        <ul>
+                            <li><i class="fas fa-headset"></i> <span class="ltr_text">@Html.Raw(Model.Setting.SiteTel)</span></li>
+                            <li><i class="fas fa-headset"></i>@Html.Raw(Model.Setting.SiteEmail)</li>
+                        </ul>
+                    </div>
+                    <div class="contactInfo-hours">
+                        <h3><strong>ساعات کاری</strong></h3>
+                        <p>@Html.Raw(Model.Setting.ContactWorkHour)</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

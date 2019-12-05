@@ -1,0 +1,892 @@
+.ls-container {
+  width: $container;
+  direction: rtl;
+}
+
+.headerSection {
+  &-top {
+    font-family: $text;
+    @include flex();
+    background: $colorThree;
+    .ls-container {
+      @include flex(space-between, center);
+    }
+
+    &-account {
+      ul {
+        margin: 15px 0;
+        li {
+          list-style: none;
+          display: inline;
+          font-size: $xxsm;
+          margin: 0 5px;
+          a {
+            color: darken($color: $gray, $amount: 40%);
+
+            &:hover {
+              color: $colorFive;
+            }
+          }
+        }
+      }
+    }
+
+    &-contact {
+      @include flex();
+    }
+  }
+
+  &-bottom {
+    @include flex();
+    padding: 30px 0;
+    .ls-container {
+      @include flex(space-between, center);
+    }
+
+    &-title {
+      font-family: $header;
+      font-size: $xxxlg;
+      font-weight: 800;
+      color: $colorFour;
+    }
+  }
+}
+
+.navbarSection {
+  @include flex();
+  background-color: $colorFour;
+  ul {
+    @include flex(flex-start, center);
+    margin: 0;
+    li {
+      list-style: none;
+      display: inline-block;
+      margin: 0 10px;
+      a {
+        font-family: $text;
+        padding: 10px 20px;
+        color: $white;
+        font-weight: 600;
+        font-size: $sm;
+        display: block;
+      }
+
+      &:hover {
+        background: $colorThree;
+      }
+    }
+  }
+  .menuEnableChechbox {
+    display: none;
+  }
+}
+
+.bodySection {
+  background-color: #f5f7fa;
+
+  .pageSection {
+    padding: 50px 0;
+    @include flex();
+    .ls-container {
+      width: $container;
+      @include flex(flex-start, center);
+      flex-direction: column;
+      font-family: $text;
+      margin: 0 auto;
+      border: 1px solid #e1dde0;
+      padding: 70px 90px 40px 90px;
+      background-color: $white;
+      border-radius: $radius;
+    }
+
+    &-breadcrumb {
+      width: 100%;
+      padding: 5px;
+      ul {
+        @include flex(flex-start, center);
+      }
+      .breadcrumb-item {
+        font-family: $text;
+        list-style: none;
+        background: $white;
+        padding: 3px 10px;
+        font-size: $xxsm;
+        background: lighten($gray, 30%);
+        color: #aaa;
+        cursor: pointer;
+
+        &::after {
+          content: "   >";
+        }
+
+        &:last-child::after {
+          content: "";
+        }
+
+        &:hover {
+          color: #777;
+        }
+      }
+    }
+    &-title {
+      font-family: $header;
+      font-size: $xlg;
+      font-weight: 700;
+      color: $colorThree;
+      width: 100%;
+      text-align: right;
+    }
+    &-details {
+      font-family: $text;
+      font-size: $xxxsm;
+      font-weight: 500;
+      color: $colorOne;
+      width: 100%;
+      margin-bottom: 20px;
+      text-align: right;
+    }
+    &-image {
+      width: 100%;
+      img {
+        width: 100%;
+        border: thin solid $gray;
+      }
+    }
+
+    .contactInfo {
+      background: lighten($gray, 25%);
+      text-align: right;
+      padding: 20px;
+
+      &-address {
+        font-size: $md;
+        font-weight: 800px;
+      }
+      p {
+        margin: 10px 5px;
+        text-align: justify;
+        font-size: $xxsm;
+        line-height: 30px;
+      }
+
+      &-details {
+        ul {
+          padding: 10px 0;
+          li {
+            list-style: none;
+            margin: 5px;
+          }
+        }
+      }
+
+      &-hours {
+        padding: 10px 0;
+      }
+    }
+
+    &-social {
+      font-family: $text;
+      width: 100%;
+      margin-top: 20px;
+      .social-sharing {
+        @include flex(flex-end, baseline);
+        .social-title {
+          font-size: $xxxsm;
+          font-weight: 500;
+          color: $colorOne;
+          margin-bottom: 20px;
+        }
+        ul.social-icons {
+          li {
+            display: inline;
+            margin: 5px 10px 0 0;
+          }
+        }
+      }
+    }
+
+    &-content {
+      font-family: $text;
+      width: 100%;
+      text-align: justify;
+
+      p {
+        &.description{
+          color: $gray;
+        }
+        font-family: $text;
+        line-height: 40px;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: $header;
+        margin-top: 30px;
+        font-weight: 400;
+        font-size: $lg;
+      }
+    }
+
+    &-source {
+      font-family: $text;
+      font-size: $xxsm;
+      font-weight: 500;
+      color: $colorFour;
+      width: 100%;
+      margin-bottom: 20px;
+      margin-top: 50px;
+      padding: 0 0 7px 0;
+      border-bottom: thin solid lighten($color: $gray, $amount: 10%);
+      text-align: right;
+    }
+    &-tags {
+      font-family: $text;
+      @include flex(flex-start, center);
+      width: 100%;
+      .tag {
+        border: thin solid $gray;
+        padding: 5px 10px;
+        margin: 0 5px;
+        color: $gray;
+        border-radius: $radius;
+        font-size: $xxsm;
+        transition: all 300ms ease-in-out;
+
+        &:hover {
+          background: $colorThree;
+          color: $white;
+          border-color: $colorThree;
+        }
+      }
+    }
+    form {
+      font-family: $text;
+      width: 100%;
+      margin: 0 auto;
+
+      input,
+      textarea {
+        border-radius: $radius;
+
+        &:focus {
+          box-shadow: 0 0 5px 1px $colorThree;
+          border: thin solid $colorThree;
+        }
+      }
+      .btn,
+      .ls-btn {
+        border-radius: $radius;
+      }
+      .captchaSection {
+        @include flex(flex-start, center);
+        margin: 10px 0;
+      }
+      .validation-summary-errors {
+        ul {
+          li {
+            list-style: none !important;
+            text-align: right;
+          }
+        }
+      }
+    }
+    .ls-btnContainer {
+      margin-top: 40px;
+    }
+  }
+
+  .sliderSection {
+    @include flex();
+    &-ls-container {
+      width: 100%;
+    }
+  }
+
+  .offerSection {
+    padding: 100px 0;
+    @include flex();
+
+    &-title {
+      width: 100%;
+      h3 {
+        font-family: $header;
+        font-size: $xlg;
+        font-weight: 700;
+        color: $colorThree;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    }
+
+    &-content {
+      font-family: $text;
+      text-align: justify;
+      line-height: 35px;
+      color: $black;
+    }
+  }
+
+  .serviceSection {
+    font-family: $text;
+    background: $colorThree;
+    padding: 100px 0;
+    @include flex();
+    .ls-container {
+      @include flex(space-evenly, center);
+      flex-direction: row;
+      width: $container;
+    }
+
+    &-item {
+      text-align: center;
+      border: thin solid $white;
+      padding: 40px 80px;
+      color: $white;
+      transition: all 200ms ease-in-out;
+
+      h4 {
+        margin: 20px 0;
+        font-size: $lg;
+      }
+
+      &:hover {
+        background: $gold;
+        box-shadow: 0 0 5px 5px $gold;
+      }
+    }
+  }
+
+  .recomendSection {
+    padding: 100px;
+    background: url(/img/insurance.jpg) no-repeat fixed;
+    @include flex();
+    position: relative;
+
+    &::before {
+      background: rgba(31, 31, 31, 0.4);
+      position: absolute;
+      content: " ";
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-title {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      h3 {
+        color: $gold;
+        font-weight: 700;
+        font-family: $header;
+        font-size: $xxlg;
+        margin-bottom: 20px;
+      }
+    }
+
+    &-content {
+      position: relative;
+      font-family: $text;
+      text-align: justify;
+      line-height: 35px;
+      color: $white;
+    }
+  }
+
+  .newsSection {
+    padding: 100px 0;
+    background: $white;
+    width: 100%;
+    &-title {
+      h3 {
+        text-align: center;
+        color: $yellow;
+        font-size: $xxlg;
+        font-family: $header;
+        font-weight: 600;
+      }
+    }
+    &-news {
+      @include flex();
+      flex-direction: column;
+      .ls-container {
+        width: $container;
+        @include flex(space-between, stretch);
+        flex-direction: row;
+        flex-wrap: wrap;
+        a {
+          width: 30%;
+          margin: 30px 0;
+          .newsSection-news-item {
+            text-align: right;
+            .title {
+              font-family: $text;
+              color: $colorFour;
+              font-weight: 800;
+              font-size: $md;
+            }
+            .date {
+              font-family: $text;
+              color: lighten($color: $colorOne, $amount: 20%);
+              font-size: $xsm;
+              i {
+                margin-left: 5px;
+              }
+            }
+            p {
+              font-family: $text;
+              font-size: $xsm;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.footerSection {
+  font-family: $text;
+  @include flex();
+  flex-direction: column;
+  background: $colorFour;
+
+  &-top {
+    width: 100%;
+    padding: 50px 0;
+    @include flex();
+    .ls-container {
+      @include flex(space-between, center);
+    }
+    &-links {
+      ul {
+        padding: 0 30px;
+        li {
+          list-style: none;
+          margin: 10px 0;
+
+          a {
+            color: $white;
+            text-shadow: none;
+            transition: text-shadow 300ms ease-in-out;
+            &:hover {
+              text-shadow: 0 0 7px $white;
+            }
+          }
+        }
+      }
+    }
+
+    &-social {
+      ul {
+        padding: 0 30px;
+        li {
+          display: inline-block;
+          margin: 10px 15px;
+          font-size: $xxlg;
+
+          a {
+            text-shadow: none;
+            color: $white;
+            &:hover {
+              color: $colorThree;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-bottom {
+    width: 100%;
+    @include flex();
+    .ls-container {
+      width: $container;
+      background-color: $colorThree;
+      @include flex(space-between, center);
+      padding: 15px 20px;
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .headerSection {
+    .ls-container {
+      flex-direction: column;
+      padding-bottom: 0px;
+    }
+    &-top{
+      &-contact{
+        display: none;
+      }
+    }
+    &-bottom {
+      &-title {
+        font-size: $xlg;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .navbarSection {
+    @include flex(space-between, center);
+    width: 100%;
+    flex-direction: column !important;
+    padding: 0;
+
+    .nomenu {
+      flex-grow: 1;
+      height: 60px;
+      width: 100%;
+      @include flex(space-between, center);
+      flex-direction: row;
+
+      .controlMenu {
+        width: 10%;
+      }
+    }
+
+    ul.links {
+      height: 0;
+      transition: all 200ms ease-in-out;
+      display: block;
+      overflow: hidden;
+      @include flex();
+      flex-direction: column;
+
+      li {
+        display: block !important;
+        width: 100% !important;
+        border-bottom: 1px solid darken($color: $gray, $amount: $darker);
+        padding: 9px 0;
+        text-align: center;
+
+        a {
+          font-family: $header !important;
+          font-size: $md;
+          font-weight: 600;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .menuEnableChechbox {
+      display: none;
+
+      &:checked + ul.links {
+        height: 200px;
+      }
+    }
+
+    .controlMenu {
+      display: block;
+      padding: 0 60px;
+    }
+
+    .holder {
+      display: inline-block;
+      cursor: pointer;
+      margin-left: 20px;
+    }
+    .bar1,
+    .bar2,
+    .bar3 {
+      width: 35px;
+      height: 5px;
+      background-color: #fff;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+
+    .change .bar1 {
+      -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+      transform: rotate(-45deg) translate(-9px, 6px);
+    }
+
+    .change .bar2 {
+      opacity: 0;
+    }
+
+    .change .bar3 {
+      -webkit-transform: rotate(45deg) translate(-8px, -8px);
+      transform: rotate(45deg) translate(-8px, -8px);
+    }
+  }
+
+  .bodySection{
+    
+  .pageSection {
+    padding: 50px 0;
+    @include flex();
+    .ls-container {
+      padding: 30px 25px;
+    }
+
+    .formInfo{
+      order: 2;
+      margin-top: 30px;
+    }
+    .contactInfo{
+      order: 1;
+    }
+
+    &-breadcrumb {
+      .breadcrumb-item {
+        font-size: $xxxsm;
+      }
+    }
+    &-title {
+      font-size: $lg;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    &-details {
+      font-weight: 100;
+    }
+
+    .contactInfo {
+      background: lighten($gray, 25%);
+      text-align: right;
+      padding: 20px;
+
+      &-address {
+        font-size: $md;
+        font-weight: 800px;
+      }
+      p {
+        margin: 10px 5px;
+        text-align: justify;
+        font-size: $xxsm;
+        line-height: 30px;
+      }
+
+      &-details {
+        ul {
+          padding: 10px 0;
+          li {
+            list-style: none;
+            margin: 5px;
+          }
+        }
+      }
+
+      &-hours {
+        padding: 10px 0;
+      }
+    }
+
+    &-social {
+      .social-sharing {
+        @include flex(center, baseline);
+      }
+    }
+
+    &-content {
+
+      p {
+        line-height: 30px;
+        font-size: $xxsm;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: $md;
+      }
+    }
+
+    &-source {
+      font-family: $text;
+      font-size: $xxsm;
+      font-weight: 500;
+      color: $colorFour;
+      width: 100%;
+      margin-bottom: 20px;
+      margin-top: 50px;
+      padding: 0 0 7px 0;
+      border-bottom: thin solid lighten($color: $gray, $amount: 10%);
+      text-align: right;
+    }
+    &-tags {
+      @include flex(center, center);
+      width: 100%;
+      .tag {
+        font-size: $xxxsm;
+      }
+    }
+    form {
+      font-family: $text;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+
+      input,
+      textarea {
+        border-radius: $radius;
+
+        &:focus {
+          box-shadow: 0 0 5px 1px $colorThree;
+          border: thin solid $colorThree;
+        }
+      }
+      .btn,
+      .ls-btn {
+        border-radius: $radius;
+      }
+      .captchaSection {
+        @include flex(flex-start, center);
+        margin: 10px 0;
+      }
+      .validation-summary-errors {
+        ul {
+          li {
+            list-style: none !important;
+            text-align: right;
+          }
+        }
+      }
+    }
+    .ls-btnContainer {
+      margin-top: 40px;
+    }
+  }
+  .offerSection {
+    &-content {
+      text-align: center;
+    }
+  }
+
+  .recomendSection {
+    padding: 100px;
+    background: url(/img/insurance.jpg) no-repeat fixed;
+    @include flex();
+    position: relative;
+
+    &::before {
+      background: rgba(31, 31, 31, 0.4);
+      position: absolute;
+      content: " ";
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-title {
+      h3 {
+        font-size: $xlg;
+      }
+    }
+
+    &-content {
+      text-align: center;
+    }
+  }
+  
+  .newsSection {
+    padding: 100px 0;
+    background: $white;
+    width: 100%;
+    &-title {
+      h3 {
+        text-align: center;
+        color: $yellow;
+        font-size: $xlg;
+        font-family: $header;
+        font-weight: 600;
+      }
+    }
+    &-news {
+      .ls-container {
+        width: $container;
+        @include flex(space-between, center);
+        flex-direction: column;
+        a {
+          width: 100%;
+          margin: 30px 0;
+          background: lighten($color: $gray, $amount: 30%);
+          .newsSection-news-item {
+            text-align: center;
+            padding: 30px 20px 20px;
+            margin-bottom: 20px;
+            .title {
+              font-family: $text;
+              color: $colorFour;
+              font-weight: 800;
+              font-size: $md;
+            }
+            .date {
+              font-family: $text;
+              color: lighten($color: $colorOne, $amount: 20%);
+              font-size: $xsm;
+              i {
+                margin-left: 5px;
+              }
+            }
+            p {
+              font-family: $text;
+              font-size: $xsm;
+            }
+          }
+        }
+      }
+    }
+  }
+  }
+
+
+  .footerSection {
+    font-family: $text;
+    @include flex();
+    flex-direction: column;
+    background: $colorFour;
+  
+    &-top {
+      .ls-container {
+        flex-direction: column;
+      }
+      &-links {
+        ul {
+          li {
+            text-align: center;
+          }
+        }
+      }
+  
+      &-social {
+        ul {
+          @include flex();
+          flex-direction: row;
+          li {
+            font-size: $lg;
+          }
+        }
+      }
+    }
+  
+    &-bottom {
+      .ls-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  }
+
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+}
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+}
+@media only screen and (min-width: 993px) and (max-width: 1280px) {
+}
+@media only screen and (min-width: 1281px) {
+}

@@ -1,0 +1,12 @@
+﻿@model App.Domain.Identity.User
+<div style="color: white; font-size: 14px; padding: 10px">
+    @Model.FirstName @Model.LastName <br />
+   @foreach (var role in ViewBag.Roles)
+    {
+        if (role.Name != "user")
+        {
+            @role.DisplayName
+        }
+    }
+
+</div>

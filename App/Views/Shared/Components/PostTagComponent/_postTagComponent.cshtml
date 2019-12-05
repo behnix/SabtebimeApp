@@ -1,0 +1,10 @@
+﻿@model IEnumerable<App.Domain.Entities.Post.PostTag>
+<div class="single-categories-1 tag-area">
+    <h3 class="blog-categorie-title">برچسب ها</h3>
+    <div class="tagcloud">
+        @foreach (var postTag in Model)
+        {
+            <a href="#">@Html.Raw(postTag.Tag.TagTitle)</a>
+        }
+    </div>
+</div>

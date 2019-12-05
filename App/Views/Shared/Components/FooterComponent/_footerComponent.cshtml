@@ -1,0 +1,41 @@
+﻿@model App.Domain.Entities.Setting.Setting
+<footer class="footerSection">
+    <div class="footerSection-top">
+        <div class="ls-container">
+            <div class="footerSection-top-links">
+                <ul>
+                    <li><a href="#">مزایای بیمه عمر</a></li>
+                    <li><a href="#">روش های پرداخت</a></li>
+                    <li><a href="#">ضمانت نامه ها</a></li>
+                    <li><a href="#">تاریخچه بیمه</a></li>
+                </ul>
+            </div>
+            <div class="footerSection-top-social">
+                <ul>
+                    @if (!string.IsNullOrWhiteSpace(Model.SiteTwitterId))
+                    {
+                        <li><a href="https://twitter.com/@Model.SiteTwitterId" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.SiteTelegramId))
+                    {
+                        <li><a href="https://t.me/@Model.SiteTelegramId" target="_blank"><i class="fab fa-telegram"></i></a></li>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.SiteFacebookId))
+                    {
+                        <li><a href="https://facebook.com/@Model.SiteFacebookId" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.SiteInstagramId))
+                    {
+                        <li><a href="https://instagram.com/@Model.SiteInstagramId" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footerSection-bottom">
+        <div class="ls-container">
+            <div class="text">@Html.Raw(Model.SiteCopyRightText)</div>
+            <div class="year">&copy; 2019</div>
+        </div>
+    </div>
+</footer>

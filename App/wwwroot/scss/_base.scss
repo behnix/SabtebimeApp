@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+form{
+    direction: rtl;
+}
+
+a,a:hover{
+    text-decoration: none !important;
+    color: inherit;
+}

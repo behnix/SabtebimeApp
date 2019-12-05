@@ -1,0 +1,49 @@
+﻿@model App.DTOs.Account.RegisterAccount
+@{
+    ViewData["Title"] = "ثبت نام";
+}
+
+<div class="pageSection">
+    <div class="ls-container">
+        <div class="pageSection-title ls-center">@ViewData["Title"]</div>
+        <div class="container-fluid">
+            <form asp-route="PostRegister">
+                <div class="form-group ls-right">
+                    <input asp-for="UserName" class="form-control" placeholder="نام کاربری">
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group ls-right">
+                    <input asp-for="FirstName" class="form-control" placeholder="نام">
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group ls-right">
+                    <input asp-for="LastName" class="form-control" placeholder="نام خانوادگی">
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group ls-right">
+                    <input asp-for="Email" class="form-control" placeholder="آدرس ایمیل">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group ls-right">
+                    <input asp-for="Password" class="form-control" placeholder="کلمه عبور">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group ls-right">
+                    <input asp-for="ConfirmPassword" class="form-control" placeholder="تکرار کلمه عبور">
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="ls-center ls-btnContainer">
+                    <button type="submit" class="btn btn-success">ثبت نام</button>
+                    <a asp-route="GetForgetPassword" class="btn btn-warning">فراموشی رمز</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "خانه";
+}
+@await Component.InvokeAsync("SliderComponent")
+@await Component.InvokeAsync("IndexComponent")
+@await Component.InvokeAsync("NewPostInIndexComponent")
+
+@section styles{
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <link href="~/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+}
+@section scripts{
+    <script src="~/js/jquery-1.12.4.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.mainmenu.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/main.js"></script>
+}

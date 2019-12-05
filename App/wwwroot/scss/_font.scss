@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'enfont';
+    src: url('../fonts/TitilliumWeb-Regular.ttf');
+    font-weight: normal
+}
+
+@font-face {
+    font-family: 'enfont';
+    src: url('../fonts/TitilliumWeb-Bold.ttf');
+    font-weight: bold
+}
+
+@font-face {
+    font-family: 'enfont';
+    src: url('../fonts/TitilliumWeb-Light.ttf');
+    font-weight: 300
+}
+
+@font-face {
+    font-family: 'Yekan';
+    src: url('../fonts/IRANYekanRegular.ttf');
+    font-weight: normal
+}
+
+@font-face {
+    font-family: 'Yekan';
+    src: url('../fonts/IRANYekanBold.ttf');
+    font-weight: bold
+}
+
+@font-face {
+    font-family: 'Yekan';
+    src: url('../fonts/IRANYekanLight.ttf');
+    font-weight: 300
+}
+
+
+
+@font-face {
+    font-family: 'num';
+    src: url('../fonts/IRANSansWeb-num-bold.ttf');
+    font-weight: bold
+}
+
+@font-face {
+    font-family: 'num';
+    src: url('../fonts/IRANSansWeb-num.eot');
+    src: url('../fonts/IRANSansWeb-num.eot?#iefix') format('eot'), url('../fonts/IRANSansWeb-num.woff2') format('woff2'), url('../fonts/IRANSansWeb-num.woff') format('woff'), url('../fonts/IRANSansWeb-num.ttf') format('ttf');
+    font-weight: normal
+}
+
+@font-face {
+    font-family: 'iran';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/iransans.eot');
+    src: url('../fonts/iransans.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/iransans.woff2') format('woff2'),
+        url('../fonts/iransans.woff') format('woff'),
+        url('../fonts/iransans.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'iran';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/iransanslight.eot');
+    src: url('../fonts/iransanslight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/iransanslight.woff2') format('woff2'),
+        url('../fonts/iransanslight.woff') format('woff'),
+        url('../fonts/iransanslight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'iran';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/iransansmedium.eot');
+    src: url('../fonts/iransansmedium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/iransansmedium.woff2') format('woff2'),
+        url('../fonts/iransansmedium.woff') format('woff'),
+        url('../fonts/iransansmedium.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 100;
+    src: url("../fonts/Yekan Bakh EN 01 Hairline.eot?v=970802");
+    src: url("../fonts/Yekan Bakh EN 01 Hairline.woff?v=970802") format("woff"),
+        url("../fonts/Yekan Bakh EN 01 Hairline.ttf?v=970802") format("truetype")
+}
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 200;
+    src: url("../fonts/Yekan Bakh EN 02 Thin.eot?v=970802");
+    src: url("../fonts/Yekan Bakh EN 02 Thin.woff?v=970802") format("woff"),
+        url("../fonts/Yekan Bakh EN 02 Thin.ttf?v=970802") format("truetype")
+}
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 300;
+    src: url("../fonts/Yekan Bakh EN 03 Light.eot?v=970802");
+    src: url("../fonts/Yekan Bakh EN 03 Light.woff?v=970802") format("woff"),
+        url("../fonts/Yekan Bakh EN 03 Light.ttf?v=970802") format("truetype")
+}
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/Yekan Bakh EN 04 Regular.eot?v=970802");
+    src: url("../fonts/Yekan Bakh EN 04 Regular.woff?v=970802") format("woff"),
+        url("../fonts/Yekan Bakh EN 04 Regular.ttf?v=970802") format("truetype")
+}
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 500;
+    src: url("../fonts/Yekan Bakh EN 05 Medium.eot?v=970802");
+    src: url("../fonts/Yekan Bakh EN 05 Medium.woff?v=970802") format("woff"),
+        url("../fonts/Yekan Bakh EN 05 Medium.ttf?v=970802") format("truetype")
+}
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 600;
+    src: url("../fonts/Yekan Bakh EN 06 Bold.eot?v=970802");
+    src: url("../fonts/Yekan Bakh EN 06 Bold.woff?v=970802") format("woff"),
+        url("../fonts/Yekan Bakh EN 06 Bold.ttf?v=970802") format("truetype")
+}
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/Yekan Bakh EN 07 Heavy.eot?v=970802");
+    src: url("../fonts/Yekan Bakh EN 07 Heavy.woff?v=970802") format("woff"),
+        url("../fonts/Yekan Bakh EN 07 Heavy.ttf?v=970802") format("truetype")
+}
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 800;
+    src: url("../fonts/Yekan Bakh EN 08 Fat.eot?v=970802");
+    src: url("../fonts/Yekan Bakh EN 08 Fat.woff?v=970802") format("woff"),
+        url("../fonts/Yekan Bakh EN 08 Fat.ttf?v=970802") format("truetype")
+}
+
+
+$en : 'enfont', Tahoma;
+$num : 'num', Tahoma;
+$text : 'iran', Tahoma;
+$header : YekanBakh, Arial;

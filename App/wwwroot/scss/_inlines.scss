@@ -1,0 +1,63 @@
+.ls-xxxlg{
+    font-size: $xxxlg;
+}
+.ls-xxlg{
+    font-size: $xxlg;
+}
+.ls-xlg{
+    font-size: $xlg;
+}
+.ls-lg{
+    font-size: $lg;
+}
+.ls-md{
+    font-size: $md;
+}
+.ls-sm{
+    font-size: $sm;
+}
+.ls-xsm{
+    font-size: $xsm;
+}
+.ls-xxsm{
+    font-size: $xxsm;
+}
+.ls-xxxsm{
+    font-size: $xxxsm;
+}
+
+.ls-btn{
+    border-radius: $radius;
+    padding: 4px 12px;
+    font-size: $sm;
+}
+
+.ls-btn-default{
+    background: $silver;
+    color: $black;
+}
+.ls-btn-success{
+    background: $colorTwo;
+    color:$white;
+
+    &:hover{
+        color: $white;
+    }
+}
+.ls-btn-success-line{
+    border:thin solid $colorTwo;
+    color: $colorTwo;
+
+    &:hover{
+        color: $colorTwo;
+    }
+}
+.ls-right {
+    text-align: right;
+  }
+  .ls-left {
+    text-align: left;
+  }
+  .ls-center {
+    text-align: center;
+  }

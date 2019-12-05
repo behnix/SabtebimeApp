@@ -1,0 +1,1422 @@
+@font-face {
+  font-family: 'enfont';
+  src: url("../fonts/TitilliumWeb-Regular.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'enfont';
+  src: url("../fonts/TitilliumWeb-Bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'enfont';
+  src: url("../fonts/TitilliumWeb-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Yekan';
+  src: url("../fonts/IRANYekanRegular.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Yekan';
+  src: url("../fonts/IRANYekanBold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Yekan';
+  src: url("../fonts/IRANYekanLight.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'num';
+  src: url("../fonts/IRANSansWeb-num-bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'num';
+  src: url("../fonts/IRANSansWeb-num.eot");
+  src: url("../fonts/IRANSansWeb-num.eot?#iefix") format("eot"), url("../fonts/IRANSansWeb-num.woff2") format("woff2"), url("../fonts/IRANSansWeb-num.woff") format("woff"), url("../fonts/IRANSansWeb-num.ttf") format("ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'iran';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/iransans.eot");
+  src: url("../fonts/iransans.eot?#iefix") format("embedded-opentype"), url("../fonts/iransans.woff2") format("woff2"), url("../fonts/iransans.woff") format("woff"), url("../fonts/iransans.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'iran';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/iransanslight.eot");
+  src: url("../fonts/iransanslight.eot?#iefix") format("embedded-opentype"), url("../fonts/iransanslight.woff2") format("woff2"), url("../fonts/iransanslight.woff") format("woff"), url("../fonts/iransanslight.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'iran';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/iransansmedium.eot");
+  src: url("../fonts/iransansmedium.eot?#iefix") format("embedded-opentype"), url("../fonts/iransansmedium.woff2") format("woff2"), url("../fonts/iransansmedium.woff") format("woff"), url("../fonts/iransansmedium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: YekanBakh;
+  font-style: normal;
+  font-weight: 100;
+  src: url("../fonts/Yekan Bakh EN 01 Hairline.eot?v=970802");
+  src: url("../fonts/Yekan Bakh EN 01 Hairline.woff?v=970802") format("woff"), url("../fonts/Yekan Bakh EN 01 Hairline.ttf?v=970802") format("truetype");
+}
+
+@font-face {
+  font-family: YekanBakh;
+  font-style: normal;
+  font-weight: 200;
+  src: url("../fonts/Yekan Bakh EN 02 Thin.eot?v=970802");
+  src: url("../fonts/Yekan Bakh EN 02 Thin.woff?v=970802") format("woff"), url("../fonts/Yekan Bakh EN 02 Thin.ttf?v=970802") format("truetype");
+}
+
+@font-face {
+  font-family: YekanBakh;
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Yekan Bakh EN 03 Light.eot?v=970802");
+  src: url("../fonts/Yekan Bakh EN 03 Light.woff?v=970802") format("woff"), url("../fonts/Yekan Bakh EN 03 Light.ttf?v=970802") format("truetype");
+}
+
+@font-face {
+  font-family: YekanBakh;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Yekan Bakh EN 04 Regular.eot?v=970802");
+  src: url("../fonts/Yekan Bakh EN 04 Regular.woff?v=970802") format("woff"), url("../fonts/Yekan Bakh EN 04 Regular.ttf?v=970802") format("truetype");
+}
+
+@font-face {
+  font-family: YekanBakh;
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Yekan Bakh EN 05 Medium.eot?v=970802");
+  src: url("../fonts/Yekan Bakh EN 05 Medium.woff?v=970802") format("woff"), url("../fonts/Yekan Bakh EN 05 Medium.ttf?v=970802") format("truetype");
+}
+
+@font-face {
+  font-family: YekanBakh;
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Yekan Bakh EN 06 Bold.eot?v=970802");
+  src: url("../fonts/Yekan Bakh EN 06 Bold.woff?v=970802") format("woff"), url("../fonts/Yekan Bakh EN 06 Bold.ttf?v=970802") format("truetype");
+}
+
+@font-face {
+  font-family: YekanBakh;
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Yekan Bakh EN 07 Heavy.eot?v=970802");
+  src: url("../fonts/Yekan Bakh EN 07 Heavy.woff?v=970802") format("woff"), url("../fonts/Yekan Bakh EN 07 Heavy.ttf?v=970802") format("truetype");
+}
+
+@font-face {
+  font-family: YekanBakh;
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/Yekan Bakh EN 08 Fat.eot?v=970802");
+  src: url("../fonts/Yekan Bakh EN 08 Fat.woff?v=970802") format("woff"), url("../fonts/Yekan Bakh EN 08 Fat.ttf?v=970802") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+form {
+  direction: rtl;
+}
+
+a, a:hover {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.ls-xxxlg {
+  font-size: 3.6em;
+}
+
+.ls-xxlg {
+  font-size: 2.6em;
+}
+
+.ls-xlg {
+  font-size: 1.8em;
+}
+
+.ls-lg {
+  font-size: 1.3em;
+}
+
+.ls-md {
+  font-size: 1.1em;
+}
+
+.ls-sm {
+  font-size: 1em;
+}
+
+.ls-xsm {
+  font-size: 0.9em;
+}
+
+.ls-xxsm {
+  font-size: 0.9em;
+}
+
+.ls-xxxsm {
+  font-size: 0.8em;
+}
+
+.ls-btn {
+  border-radius: 0px;
+  padding: 4px 12px;
+  font-size: 1em;
+}
+
+.ls-btn-default {
+  background: #dddddd;
+  color: #111111;
+}
+
+.ls-btn-success {
+  background: #fafafa;
+  color: #ffffff;
+}
+
+.ls-btn-success:hover {
+  color: #ffffff;
+}
+
+.ls-btn-success-line {
+  border: thin solid #fafafa;
+  color: #fafafa;
+}
+
+.ls-btn-success-line:hover {
+  color: #fafafa;
+}
+
+.ls-right {
+  text-align: right;
+}
+
+.ls-left {
+  text-align: left;
+}
+
+.ls-center {
+  text-align: center;
+}
+
+.ls-container {
+  width: 90%;
+  direction: rtl;
+}
+
+.headerSection-top {
+  font-family: "iran", Tahoma;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fecb04;
+}
+
+.headerSection-top .ls-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.headerSection-top-account ul {
+  margin: 15px 0;
+}
+
+.headerSection-top-account ul li {
+  list-style: none;
+  display: inline;
+  font-size: 0.9em;
+  margin: 0 5px;
+}
+
+.headerSection-top-account ul li a {
+  color: #444444;
+}
+
+.headerSection-top-account ul li a:hover {
+  color: #ffffff;
+}
+
+.headerSection-top-contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.headerSection-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 30px 0;
+}
+
+.headerSection-bottom .ls-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.headerSection-bottom-title {
+  font-family: YekanBakh, Arial;
+  font-size: 3.6em;
+  font-weight: 800;
+  color: #1b1c22;
+}
+
+.navbarSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #1b1c22;
+}
+
+.navbarSection ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+}
+
+.navbarSection ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.navbarSection ul li a {
+  font-family: "iran", Tahoma;
+  padding: 10px 20px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1em;
+  display: block;
+}
+
+.navbarSection ul li:hover {
+  background: #fecb04;
+}
+
+.navbarSection .menuEnableChechbox {
+  display: none;
+}
+
+.bodySection {
+  background-color: #f5f7fa;
+}
+
+.bodySection .pageSection {
+  padding: 50px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bodySection .pageSection .ls-container {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: "iran", Tahoma;
+  margin: 0 auto;
+  border: 1px solid #e1dde0;
+  padding: 70px 90px 40px 90px;
+  background-color: #ffffff;
+  border-radius: 0px;
+}
+
+.bodySection .pageSection-breadcrumb {
+  width: 100%;
+  padding: 5px;
+}
+
+.bodySection .pageSection-breadcrumb ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bodySection .pageSection-breadcrumb .breadcrumb-item {
+  font-family: "iran", Tahoma;
+  list-style: none;
+  background: #ffffff;
+  padding: 3px 10px;
+  font-size: 0.9em;
+  background: #f7f7f7;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.bodySection .pageSection-breadcrumb .breadcrumb-item::after {
+  content: "   >";
+}
+
+.bodySection .pageSection-breadcrumb .breadcrumb-item:last-child::after {
+  content: "";
+}
+
+.bodySection .pageSection-breadcrumb .breadcrumb-item:hover {
+  color: #777;
+}
+
+.bodySection .pageSection-title {
+  font-family: YekanBakh, Arial;
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #fecb04;
+  width: 100%;
+  text-align: right;
+}
+
+.bodySection .pageSection-details {
+  font-family: "iran", Tahoma;
+  font-size: 0.8em;
+  font-weight: 500;
+  color: #313131;
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.bodySection .pageSection-image {
+  width: 100%;
+}
+
+.bodySection .pageSection-image img {
+  width: 100%;
+  border: thin solid #aaaaaa;
+}
+
+.bodySection .pageSection .contactInfo {
+  background: #eaeaea;
+  text-align: right;
+  padding: 20px;
+}
+
+.bodySection .pageSection .contactInfo-address {
+  font-size: 1.1em;
+  font-weight: 800px;
+}
+
+.bodySection .pageSection .contactInfo p {
+  margin: 10px 5px;
+  text-align: justify;
+  font-size: 0.9em;
+  line-height: 30px;
+}
+
+.bodySection .pageSection .contactInfo-details ul {
+  padding: 10px 0;
+}
+
+.bodySection .pageSection .contactInfo-details ul li {
+  list-style: none;
+  margin: 5px;
+}
+
+.bodySection .pageSection .contactInfo-hours {
+  padding: 10px 0;
+}
+
+.bodySection .pageSection-social {
+  font-family: "iran", Tahoma;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.bodySection .pageSection-social .social-sharing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.bodySection .pageSection-social .social-sharing .social-title {
+  font-size: 0.8em;
+  font-weight: 500;
+  color: #313131;
+  margin-bottom: 20px;
+}
+
+.bodySection .pageSection-social .social-sharing ul.social-icons li {
+  display: inline;
+  margin: 5px 10px 0 0;
+}
+
+.bodySection .pageSection-content {
+  font-family: "iran", Tahoma;
+  width: 100%;
+  text-align: justify;
+}
+
+.bodySection .pageSection-content p {
+  font-family: "iran", Tahoma;
+  line-height: 40px;
+}
+
+.bodySection .pageSection-content p.description {
+  color: #aaaaaa;
+}
+
+.bodySection .pageSection-content h1,
+.bodySection .pageSection-content h2,
+.bodySection .pageSection-content h3,
+.bodySection .pageSection-content h4,
+.bodySection .pageSection-content h5,
+.bodySection .pageSection-content h6 {
+  font-family: YekanBakh, Arial;
+  margin-top: 30px;
+  font-weight: 400;
+  font-size: 1.3em;
+}
+
+.bodySection .pageSection-source {
+  font-family: "iran", Tahoma;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #1b1c22;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 50px;
+  padding: 0 0 7px 0;
+  border-bottom: thin solid #c4c4c4;
+  text-align: right;
+}
+
+.bodySection .pageSection-tags {
+  font-family: "iran", Tahoma;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.bodySection .pageSection-tags .tag {
+  border: thin solid #aaaaaa;
+  padding: 5px 10px;
+  margin: 0 5px;
+  color: #aaaaaa;
+  border-radius: 0px;
+  font-size: 0.9em;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.bodySection .pageSection-tags .tag:hover {
+  background: #fecb04;
+  color: #ffffff;
+  border-color: #fecb04;
+}
+
+.bodySection .pageSection form {
+  font-family: "iran", Tahoma;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.bodySection .pageSection form input,
+.bodySection .pageSection form textarea {
+  border-radius: 0px;
+}
+
+.bodySection .pageSection form input:focus,
+.bodySection .pageSection form textarea:focus {
+  -webkit-box-shadow: 0 0 5px 1px #fecb04;
+          box-shadow: 0 0 5px 1px #fecb04;
+  border: thin solid #fecb04;
+}
+
+.bodySection .pageSection form .btn,
+.bodySection .pageSection form .ls-btn {
+  border-radius: 0px;
+}
+
+.bodySection .pageSection form .captchaSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 0;
+}
+
+.bodySection .pageSection form .validation-summary-errors ul li {
+  list-style: none !important;
+  text-align: right;
+}
+
+.bodySection .pageSection .ls-btnContainer {
+  margin-top: 40px;
+}
+
+.bodySection .sliderSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bodySection .sliderSection-ls-container {
+  width: 100%;
+}
+
+.bodySection .offerSection {
+  padding: 100px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bodySection .offerSection-title {
+  width: 100%;
+}
+
+.bodySection .offerSection-title h3 {
+  font-family: YekanBakh, Arial;
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #fecb04;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.bodySection .offerSection-content {
+  font-family: "iran", Tahoma;
+  text-align: justify;
+  line-height: 35px;
+  color: #111111;
+}
+
+.bodySection .serviceSection {
+  font-family: "iran", Tahoma;
+  background: #fecb04;
+  padding: 100px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bodySection .serviceSection .ls-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 90%;
+}
+
+.bodySection .serviceSection-item {
+  text-align: center;
+  border: thin solid #ffffff;
+  padding: 40px 80px;
+  color: #ffffff;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+.bodySection .serviceSection-item h4 {
+  margin: 20px 0;
+  font-size: 1.3em;
+}
+
+.bodySection .serviceSection-item:hover {
+  background: #dfae28;
+  -webkit-box-shadow: 0 0 5px 5px #dfae28;
+          box-shadow: 0 0 5px 5px #dfae28;
+}
+
+.bodySection .recomendSection {
+  padding: 100px;
+  background: url(/img/insurance.jpg) no-repeat fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.bodySection .recomendSection::before {
+  background: rgba(31, 31, 31, 0.4);
+  position: absolute;
+  content: " ";
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bodySection .recomendSection-title {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.bodySection .recomendSection-title h3 {
+  color: #dfae28;
+  font-weight: 700;
+  font-family: YekanBakh, Arial;
+  font-size: 2.6em;
+  margin-bottom: 20px;
+}
+
+.bodySection .recomendSection-content {
+  position: relative;
+  font-family: "iran", Tahoma;
+  text-align: justify;
+  line-height: 35px;
+  color: #ffffff;
+}
+
+.bodySection .newsSection {
+  padding: 100px 0;
+  background: #ffffff;
+  width: 100%;
+}
+
+.bodySection .newsSection-title h3 {
+  text-align: center;
+  color: #ffdc00;
+  font-size: 2.6em;
+  font-family: YekanBakh, Arial;
+  font-weight: 600;
+}
+
+.bodySection .newsSection-news {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.bodySection .newsSection-news .ls-container {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.bodySection .newsSection-news .ls-container a {
+  width: 30%;
+  margin: 30px 0;
+}
+
+.bodySection .newsSection-news .ls-container a .newsSection-news-item {
+  text-align: right;
+}
+
+.bodySection .newsSection-news .ls-container a .newsSection-news-item .title {
+  font-family: "iran", Tahoma;
+  color: #1b1c22;
+  font-weight: 800;
+  font-size: 1.1em;
+}
+
+.bodySection .newsSection-news .ls-container a .newsSection-news-item .date {
+  font-family: "iran", Tahoma;
+  color: #646464;
+  font-size: 0.9em;
+}
+
+.bodySection .newsSection-news .ls-container a .newsSection-news-item .date i {
+  margin-left: 5px;
+}
+
+.bodySection .newsSection-news .ls-container a .newsSection-news-item p {
+  font-family: "iran", Tahoma;
+  font-size: 0.9em;
+}
+
+.footerSection {
+  font-family: "iran", Tahoma;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #1b1c22;
+}
+
+.footerSection-top {
+  width: 100%;
+  padding: 50px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footerSection-top .ls-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footerSection-top-links ul {
+  padding: 0 30px;
+}
+
+.footerSection-top-links ul li {
+  list-style: none;
+  margin: 10px 0;
+}
+
+.footerSection-top-links ul li a {
+  color: #ffffff;
+  text-shadow: none;
+  -webkit-transition: text-shadow 300ms ease-in-out;
+  transition: text-shadow 300ms ease-in-out;
+}
+
+.footerSection-top-links ul li a:hover {
+  text-shadow: 0 0 7px #ffffff;
+}
+
+.footerSection-top-social ul {
+  padding: 0 30px;
+}
+
+.footerSection-top-social ul li {
+  display: inline-block;
+  margin: 10px 15px;
+  font-size: 2.6em;
+}
+
+.footerSection-top-social ul li a {
+  text-shadow: none;
+  color: #ffffff;
+}
+
+.footerSection-top-social ul li a:hover {
+  color: #fecb04;
+}
+
+.footerSection-bottom {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footerSection-bottom .ls-container {
+  width: 90%;
+  background-color: #fecb04;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 20px;
+}
+
+@media only screen and (max-width: 576px) {
+  .headerSection .ls-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-bottom: 0px;
+  }
+  .headerSection-top-contact {
+    display: none;
+  }
+  .headerSection-bottom-title {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+  .navbarSection {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    padding: 0;
+  }
+  .navbarSection .nomenu {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    height: 60px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .navbarSection .nomenu .controlMenu {
+    width: 10%;
+  }
+  .navbarSection ul.links {
+    height: 0;
+    -webkit-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+    display: block;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .navbarSection ul.links li {
+    display: block !important;
+    width: 100% !important;
+    border-bottom: 1px solid #5e5e5e;
+    padding: 9px 0;
+    text-align: center;
+  }
+  .navbarSection ul.links li a {
+    font-family: YekanBakh, Arial !important;
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+  .navbarSection ul.links li:last-child {
+    border-bottom: none;
+  }
+  .navbarSection .menuEnableChechbox {
+    display: none;
+  }
+  .navbarSection .menuEnableChechbox:checked + ul.links {
+    height: 200px;
+  }
+  .navbarSection .controlMenu {
+    display: block;
+    padding: 0 60px;
+  }
+  .navbarSection .holder {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  .navbarSection .bar1,
+  .navbarSection .bar2,
+  .navbarSection .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #fff;
+    margin: 6px 0;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  .navbarSection .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+  .navbarSection .change .bar2 {
+    opacity: 0;
+  }
+  .navbarSection .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+  .bodySection .pageSection {
+    padding: 50px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .bodySection .pageSection .ls-container {
+    padding: 30px 25px;
+  }
+  .bodySection .pageSection .formInfo {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    margin-top: 30px;
+  }
+  .bodySection .pageSection .contactInfo {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .bodySection .pageSection-breadcrumb .breadcrumb-item {
+    font-size: 0.8em;
+  }
+  .bodySection .pageSection-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .bodySection .pageSection-details {
+    font-weight: 100;
+  }
+  .bodySection .pageSection .contactInfo {
+    background: #eaeaea;
+    text-align: right;
+    padding: 20px;
+  }
+  .bodySection .pageSection .contactInfo-address {
+    font-size: 1.1em;
+    font-weight: 800px;
+  }
+  .bodySection .pageSection .contactInfo p {
+    margin: 10px 5px;
+    text-align: justify;
+    font-size: 0.9em;
+    line-height: 30px;
+  }
+  .bodySection .pageSection .contactInfo-details ul {
+    padding: 10px 0;
+  }
+  .bodySection .pageSection .contactInfo-details ul li {
+    list-style: none;
+    margin: 5px;
+  }
+  .bodySection .pageSection .contactInfo-hours {
+    padding: 10px 0;
+  }
+  .bodySection .pageSection-social .social-sharing {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+  }
+  .bodySection .pageSection-content p {
+    line-height: 30px;
+    font-size: 0.9em;
+  }
+  .bodySection .pageSection-content h1,
+  .bodySection .pageSection-content h2,
+  .bodySection .pageSection-content h3,
+  .bodySection .pageSection-content h4,
+  .bodySection .pageSection-content h5,
+  .bodySection .pageSection-content h6 {
+    font-size: 1.1em;
+  }
+  .bodySection .pageSection-source {
+    font-family: "iran", Tahoma;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #1b1c22;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    padding: 0 0 7px 0;
+    border-bottom: thin solid #c4c4c4;
+    text-align: right;
+  }
+  .bodySection .pageSection-tags {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  .bodySection .pageSection-tags .tag {
+    font-size: 0.8em;
+  }
+  .bodySection .pageSection form {
+    font-family: "iran", Tahoma;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .bodySection .pageSection form input,
+  .bodySection .pageSection form textarea {
+    border-radius: 0px;
+  }
+  .bodySection .pageSection form input:focus,
+  .bodySection .pageSection form textarea:focus {
+    -webkit-box-shadow: 0 0 5px 1px #fecb04;
+            box-shadow: 0 0 5px 1px #fecb04;
+    border: thin solid #fecb04;
+  }
+  .bodySection .pageSection form .btn,
+  .bodySection .pageSection form .ls-btn {
+    border-radius: 0px;
+  }
+  .bodySection .pageSection form .captchaSection {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 10px 0;
+  }
+  .bodySection .pageSection form .validation-summary-errors ul li {
+    list-style: none !important;
+    text-align: right;
+  }
+  .bodySection .pageSection .ls-btnContainer {
+    margin-top: 40px;
+  }
+  .bodySection .offerSection-content {
+    text-align: center;
+  }
+  .bodySection .recomendSection {
+    padding: 100px;
+    background: url(/img/insurance.jpg) no-repeat fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: relative;
+  }
+  .bodySection .recomendSection::before {
+    background: rgba(31, 31, 31, 0.4);
+    position: absolute;
+    content: " ";
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .bodySection .recomendSection-title h3 {
+    font-size: 1.8em;
+  }
+  .bodySection .recomendSection-content {
+    text-align: center;
+  }
+  .bodySection .newsSection {
+    padding: 100px 0;
+    background: #ffffff;
+    width: 100%;
+  }
+  .bodySection .newsSection-title h3 {
+    text-align: center;
+    color: #ffdc00;
+    font-size: 1.8em;
+    font-family: YekanBakh, Arial;
+    font-weight: 600;
+  }
+  .bodySection .newsSection-news .ls-container {
+    width: 90%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .bodySection .newsSection-news .ls-container a {
+    width: 100%;
+    margin: 30px 0;
+    background: #f7f7f7;
+  }
+  .bodySection .newsSection-news .ls-container a .newsSection-news-item {
+    text-align: center;
+    padding: 30px 20px 20px;
+    margin-bottom: 20px;
+  }
+  .bodySection .newsSection-news .ls-container a .newsSection-news-item .title {
+    font-family: "iran", Tahoma;
+    color: #1b1c22;
+    font-weight: 800;
+    font-size: 1.1em;
+  }
+  .bodySection .newsSection-news .ls-container a .newsSection-news-item .date {
+    font-family: "iran", Tahoma;
+    color: #646464;
+    font-size: 0.9em;
+  }
+  .bodySection .newsSection-news .ls-container a .newsSection-news-item .date i {
+    margin-left: 5px;
+  }
+  .bodySection .newsSection-news .ls-container a .newsSection-news-item p {
+    font-family: "iran", Tahoma;
+    font-size: 0.9em;
+  }
+  .footerSection {
+    font-family: "iran", Tahoma;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background: #1b1c22;
+  }
+  .footerSection-top .ls-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footerSection-top-links ul li {
+    text-align: center;
+  }
+  .footerSection-top-social ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .footerSection-top-social ul li {
+    font-size: 1.3em;
+  }
+  .footerSection-bottom .ls-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+  }
+}
+/*# sourceMappingURL=main.css.map */

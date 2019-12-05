@@ -1,0 +1,169 @@
+﻿@using App.Services.Identity
+@inject IDynamicPermissionService DynamicPermission
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کنترل پنل | @ViewData["Title"]</title>
+    <link href="/adminAssets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/adminAssets/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="/adminAssets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Toastr style -->
+    <link href="/adminAssets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <!-- Gritter -->
+    <link href="/adminAssets/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    <link href="/adminAssets/css/animate.css" rel="stylesheet">
+    <link href="/adminAssets/css/style.rtl.css" rel="stylesheet">
+
+    @RenderSection("Styles", false)
+    <link href="/adminAssets/css/custom.css" rel="stylesheet">
+
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        @await Component.InvokeAsync("AdminNameComponent")
+                    </li>
+                    <li class="special_link">
+                        <a href="/dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i> <span class="nav-label">داشبورد</span></a>
+                    </li>
+                    @if (DynamicPermission.CanAccess(User, "", "UserManager", "Index"))
+                    {
+                        <li>
+                            <a href="#"><i class="fa fa-users" aria-hidden="true"></i> <span class="nav-label">کاربران</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="/user-manager">لیست کاربران</a></li>
+                            </ul>
+                        </li>
+                    }
+                    @if (DynamicPermission.CanAccess(User, "", "RoleManager", "Index"))
+                    {
+                        <li>
+                            <a href="#"><i class="fa fa-users" aria-hidden="true"></i> <span class="nav-label">نقش های کاربران</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="/role-manager">لیست نقش ها</a></li>
+                            </ul>
+                        </li>
+                    }
+                    <li>
+                        <a href="#"><i class="fa fa-cubes" aria-hidden="true"></i> <span class="nav-label">محصولات</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="/admin/Product">لیست محصولات</a></li>
+                            <li><a href="/admin/Product/Create">افزودن محصول</a></li>
+                            <li><a href="/admin/Category">دسته بندی ها</a></li>
+                            <li><a href="/admin/Brand">برند ها</a></li>
+                            <li><a href="/admin/ConfigChart">مشخصه ها</a></li>
+                        </ul>
+                    </li>
+                    @if (DynamicPermission.CanAccess(User, "", "Post", "Index"))
+                    {
+                        <li>
+                            <a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <span class="nav-label">مقالات</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a asp-route="GetPosts">لیست مقالات</a></li>
+                                <li><a asp-route="GetCreatePost">افزودن مقاله</a></li>
+
+                                @if (DynamicPermission.CanAccess(User, "", "Group", "Index"))
+                                {
+                                    <li><a asp-route="GetGroups">گروه مقالات</a></li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                    @if (DynamicPermission.CanAccess(User, "", "Page", "Index"))
+                    {
+                        <li>
+                            <a href="#"><i class="fa fa-files-o" aria-hidden="true"></i> <span class="nav-label">صفحات</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a asp-route="GetPages">لیست صفحات</a></li>
+                                <li><a asp-route="GetCreatePage">افزودن صفحه</a></li>
+                                <li><a asp-route="GetEditAbout">درباره ما</a></li>
+                                <li><a asp-route="GetEditTerms">قوانین و مقررات</a></li>
+                                <li><a asp-route="GetEditContact">تماس با ما</a></li>
+                            </ul>
+                        </li>
+                    }
+                    @if (DynamicPermission.CanAccess(User, "", "Contact", "Index"))
+                    {
+                        <li>
+                            <a href="#"><i class="fa fa-comments" aria-hidden="true"></i> <span class="nav-label">پیام های کاربران</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a asp-route="GetNewContact">پیام های خوانده نشده</a></li>
+                                <li><a asp-route="GetArchiveContact">پیام های بایگانی شده</a></li>
+                            </ul>
+                        </li>
+                    }
+                    @if (DynamicPermission.CanAccess(User, "", "Slider", "Index"))
+                    {
+                        <li>
+                            <a href="#"><i class="fa fa-address-card-o" aria-hidden="true"></i> <span class="nav-label">اسلایدر</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a asp-route="GetSliders">لیست اسلایدرها</a></li>
+                                <li><a asp-route="GetCreateSlider">افزودن اسلایدر</a></li>
+                            </ul>
+                        </li>
+                    }
+                    @if (DynamicPermission.CanAccess(User, "", "Setting", "Index"))
+                    {
+                        <li>
+                            <a href="#"><i class="fa fa-cogs" aria-hidden="true"></i> <span class="nav-label">تنظیمات کلی</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a asp-route="GetEditIndex">تنظیمات صفحه اول</a></li>
+                                <li><a href="/admin/setting/StyleSetting">تنظیمات ظاهری</a></li>
+                                <li><a href="/admin/setting/EmailSetting">تنظیمات ایمیل</a></li>
+                                <li><a href="/admin/setting/SmsSetting">تنظیمات پیامک</a></li>
+                                <li><a href="/admin/setting/GoogleTools">تنظیمات گوگل</a></li>
+                                <li><a href="/admin/setting/edit">تنظیمات</a></li>
+                            </ul>
+                        </li>
+                    }
+                    <li>
+                        <a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i> <span class="nav-label">راهنمای استفاده</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="/admin/help/editor">استفاده از ویرایشگر</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-success" href="#"><i class="fa fa-bars"></i> </a>
+                        <a href="/" class="btn btn-danger btn-sm" target="_blank" style="margin-top: 14px"><i class="fa fa-globe"></i> مشاهده سایت</a>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-left">
+                        <li>
+                            <a href="/logout">
+                                <i class="fa fa-sign-out"></i> خروج
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            @RenderBody()
+            <div class="footer">
+                <div class="pull-left">
+
+                </div>
+                <div>
+                    <strong>کلیه حقوق محفوظ است</strong>
+                    @DateTime.Now.Year © <a href="http://www.behnix.ir" target="_blank">طراحی وبرنامه نویسی توسط بهنیکس </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/adminAssets/js/jquery-2.1.1.js"></script>
+    <script src="/adminAssets/js/bootstrap.min.js"></script>
+    <script src="/adminAssets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/adminAssets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="/adminAssets/js/rada.js"></script>
+    @RenderSection("Scripts", false)
+</body>
+</html>
+

@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="@Html.Raw(ViewBag.Description)">
+        <link rel="canonical" href="@ViewData["Canonical"]">
+        @await Component.InvokeAsync("LayoutComponent")
+        <partial name="_Styles" />
+        @RenderSection("Styles", required: false)
+    </head>
+    <body>
+        <header class="headerSection">
+            <div class="headerSection-top">
+                <div class="ls-container">
+                    <div class="headerSection-top-account">
+                        <ul>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li><a asp-route="userArea"><i class="fas fa-user-circle"></i> @User.Identity.Name</a></li>
+
+                                @if (User.IsInRole("sa"))
+                                {
+                                    <li>
+                                        <a asp-route="GetDashboard">مدیریت</a>
+                                    </li>
+                                }
+                                <li><a asp-route="Logout">خروج</a></li>
+                            }
+                            else
+                            {
+                                <li><a asp-route="GetRegister"><i class="fas fa-user-circle"></i> ثبت نام</a></li>
+                                <li><a asp-route="GetLogin"><i class="fas fa-key"></i> ورود</a></li>
+                                <li><a href="#"><i class="fas fa-lock"></i> فراموشی گذرواژه</a></li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="headerSection-top-contact">
+                        <i class="fas fa-headset"></i>
+                        <div class="text">09126351108</div>
+                    </div>
+                </div>
+            </div>
+            <div class="headerSection-bottom">
+                <div class="ls-container">
+                    <div class="headerSection-bottom-title">
+                        بیمه عمر پاسارگاد
+                    </div>
+                    <div class="headerSection-bottom-logo">
+                        <img src="/img/logots.png" alt="پاسارگاد">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="navbarSection">
+            <div class="ls-container">
+                <div class="nomenu">
+                    <div class="holder" onclick="myFunction(this)">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </div>
+                </div>
+                <input class="menuEnableChechbox"
+                       type="checkbox"
+                       name="menuEnable"
+                       id="menuEnable" />
+                <ul class="links">
+                    <li><a asp-route="GetIndex" class="index">صفحه اصلی</a></li>
+                    <li><a asp-route="GetAbout">درباره ما</a></li>
+                    <li><a href="/contact">تماس با ما</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bodySection">
+            @RenderBody()
+        </div>
+        @await Component.InvokeAsync("FooterComponent")
+        @RenderSection("Scripts", required: false)
+
+        <script>
+            function myFunction(x) {
+                x.classList.toggle("change");
+                var chkBox = document.getElementById("menuEnable");
+                if (chkBox.checked) {
+                    document.getElementById("menuEnable").checked = false;
+                } else {
+                    document.getElementById("menuEnable").checked = true;
+                }
+            }
+        </script>
+    </body>
+</html>

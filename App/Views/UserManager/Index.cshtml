@@ -1,0 +1,109 @@
+﻿@using App.Core.Convertors
+@model IEnumerable<App.Domain.Identity.User>
+@{
+    ViewData["Title"] = "لیست کاربران";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>@ViewData["Title"]</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <a asp-route="GetDashboard">داشبورد</a>
+            <li>
+                @ViewData["Title"]
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@ViewData["Title"]</h5>
+                </div>
+                <div class="ibox-content">
+                    @if (Model.Any())
+                    {
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">
+                                        #
+                                    </th>
+                                    <th class="text-center">
+                                        نام و نام خانوادگی
+                                    </th>
+                                    <th class="text-center">
+                                        نام کاربری
+                                    </th>
+                                    <th class="text-center">
+                                        پست الکترونیکی
+                                    </th>
+                                    <th class="text-center">
+                                        تائید شده؟
+                                    </th>
+                                    <th class="text-center">
+                                        تاریخ ثبت نام
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ var i = 1;}
+                                @foreach (var item in Model.Where(u => u.UserName != User.Identity.Name).OrderByDescending(p => p.Id))
+{
+<tr>
+    <td class="pt-20 text-center">
+        @(i++)
+    </td>
+    <td class="pt-20 text-center">
+        @item.FirstName @item.LastName
+    </td>
+    <td class="pt-20 text-center">
+        @item.UserName
+    </td>
+    <td class="pt-20 text-center">
+        @item.Email
+    </td>
+    <td class="pt-20 text-center">
+        @if (item.EmailConfirmed)
+        {
+            <i class="fa fa-check text-success"></i>
+        }
+        else
+        {
+            <i class="fa fa-times text-danger"></i>
+        }
+    </td>
+    <td class="pt-20 text-center">
+        @item.RegisteredOn.ToShamsi()
+    </td>
+    <td class="pt-15 text-center" style="display: flex; justify-content: space-between">
+        <a asp-route="GetAddUserRole" asp-route-userName="@item.UserName" class="btn btn-primary btn-sm">افزودن نقش</a>
+        <a asp-route="GetAddUserClaim" asp-route-userName="@item.UserName" class="btn btn-success btn-sm">افزودن مشخصه</a>
+        <a asp-route="GetUserRoles" asp-route-userName="@item.UserName" class="btn btn-info btn-sm">نقشهای کاربر</a>
+        <a asp-route="GetUserLogins" asp-route-userName="@item.UserName" class="btn btn-info btn-sm">ورودهای کاربر</a>
+        <a asp-route="GetUserClaims" asp-route-userName="@item.UserName" class="btn btn-info btn-sm">مشخصه های کاربر</a>
+        <a asp-route="GetUserEdit" asp-route-userName="@item.UserName" class="btn btn-warning btn-sm"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+        <form asp-route="PostUserRemove">
+            <input type="hidden" name="userId" value="@item.Id" />
+            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-times" aria-hidden="true"></i></button>
+        </form>
+    </td>
+</tr>
+}
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>هیچ کاربری موجود نیست</p>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

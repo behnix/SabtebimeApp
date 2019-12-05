@@ -1,0 +1,19 @@
+﻿@using App.Core.Convertors
+@model App.Domain.Entities.Setting.Setting
+
+@{
+    ViewData["Title"] = Html.Raw(TextConvertor.ReplaceLetters(Model.AboutUsTitle, '-', ' '));
+    ViewData["Description"] = Html.Raw(Model.AboutUsDescription);
+    ViewData["Canonical"] = Html.Raw(ViewData["SiteAddress"] + "/about");
+    ViewData["Url"] = Html.Raw(ViewData["SiteAddress"] + "/about");
+    ViewData["Image"] = ViewData["SiteAddress"] + "/assets/logo/" + Model.Logo;
+    ViewData["SiteName"] = ViewBag.SiteName;
+}
+<div class="pageSection">
+    <div class="ls-container">
+        <div class="pageSection-title ls-center">@Html.Raw(Model.AboutUsTitle)</div>
+        <div class="pageSection-content">
+            @Html.Raw(Model.AboutUs)
+        </div>
+    </div>
+</div>

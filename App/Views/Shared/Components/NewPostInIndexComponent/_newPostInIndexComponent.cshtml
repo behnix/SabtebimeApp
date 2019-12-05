@@ -1,0 +1,32 @@
+﻿@using App.Core.Convertors
+@model IEnumerable<App.Domain.Entities.Post.Post>
+<div class="newsSection">
+    <div class="newsSection-title">
+        <h3>جدیدترین خبرها</h3>
+    </div>
+    <div class="newsSection-news">
+        <div class="ls-container">
+            @foreach (var post in Model)
+            {
+                <a href="/post/@Html.Raw(post.PostTitleInBrowser)">
+                    <div class="newsSection-news-item">
+                        <div class="title">@Html.Raw(post.PostTitle)</div>
+                        <div class="date">
+                            <i class="fas fa-calendar-alt"></i>@post.PostCreationDate.ToLongShamsi()
+                        </div>
+                        <p>
+                            @if (post.PostDescription.Length > 100)
+                            {
+                                @Html.Raw(post.PostDescription.Substring(0, 100) + "...")
+                            }
+                            else
+                            {
+                                @Html.Raw(post.PostDescription)
+                            }
+                        </p>
+                    </div>
+                </a>
+            }
+            </div>
+    </div>
+</div>

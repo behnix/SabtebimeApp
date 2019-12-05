@@ -1,0 +1,39 @@
+﻿@model IEnumerable<App.Domain.Entities.Slider.Slider>
+@if (Model.Any())
+{
+    <div class="slider-active owl-carousel">
+        @foreach (var slider in Model)
+        {
+            <div class="slider-wrapper" style="background-image: url(assets/sliders/@slider.SliderImage)">
+                <div class="container">
+                    <div class="row justify-content-end">
+                        <div class="col-lg-6 col-md-7">
+                            <div class="slider-text-info style-3 text-center slider-text-animation">
+                                @if (!string.IsNullOrWhiteSpace(slider.SliderTitle1))
+                                {
+                                    <h1 class="title-1">@Html.Raw(slider.SliderTitle1)</h1>
+                                }
+                                @if (!string.IsNullOrWhiteSpace(slider.SliderTitle2))
+                                {
+                                    <h2 class="title-2">@Html.Raw(slider.SliderTitle2)</h2>
+                                }
+                                @if (!string.IsNullOrWhiteSpace(slider.SliderTitle3))
+                                {
+                                    <div class="slider-1-des">
+                                        <p><span>@Html.Raw(slider.SliderTitle3)</span></p>
+                                    </div>
+                                }
+                                @if (!string.IsNullOrWhiteSpace(slider.SliderButtonLink) && string.IsNullOrWhiteSpace(slider.SliderButtonLink))
+                                {
+                                    <div class="slier-btn-1">
+                                        <a title="shop now" href="@Html.Raw(slider.SliderButtonLink)" class="shop-btn">@Html.Raw(slider.SliderButtonText)</a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

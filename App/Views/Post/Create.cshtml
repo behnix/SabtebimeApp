@@ -1,0 +1,163 @@
+﻿@model App.Domain.Entities.Post.Post
+@{
+    ViewData["Title"] = "افزودن پست جدید";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>@ViewData["Title"]</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <a asp-route="GetDashboard">داشبورد</a>
+            <li>
+                @ViewData["Title"]
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@ViewData["Title"]</h5>
+                </div>
+                <div class="ibox-content">
+                    <form method="post" asp-route="PostCreatePost" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="PostTitle" class="control-label"></label>
+                                    <input asp-for="PostTitle" class="form-control" />
+                                    <span asp-validation-for="PostTitle" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="PostDescription" class="control-label"></label>
+                                    <textarea asp-for="PostDescription" rows="3" class="form-control"></textarea>
+                                    <span asp-validation-for="PostDescription" class="text-danger"></span>
+                                </div>
+                                <hr />
+                                <h3 class="text-danger text-16">اختصاصی برای سئو</h3>
+                                <div class="form-group">
+                                    <label asp-for="PostTitleInBrowser" class="control-label"></label>
+                                    <input asp-for="PostTitleInBrowser" class="form-control" />
+                                    <span asp-validation-for="PostTitleInBrowser" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="PostDescriptionForSearchEngines" class="control-label"></label>
+                                    <textarea asp-for="PostDescriptionForSearchEngines" rows="3" class="form-control"></textarea>
+                                    <span asp-validation-for="PostDescriptionForSearchEngines" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="PostTags" class="control-label"></label>
+                                    <input class="form-control" type="text" name="tags" id="tags" data-role="tagsinput" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">قالب آماده محتوا</label>
+                                    <select id="templates" class="form-control">
+                                        <option>لطفا یک قالب انتخاب نمائید</option>
+                                        <option value="Template_1">قالب آماده بدون تصویر</option>
+                                        <option value="Template_2">قالب آماده همراه با تصویر</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="PostImage" class="control-label"></label>
+                                </div>
+                                <img id="PostImage" class="img-half" src="/assets/posts/image/no-image.png" alt="image" />
+                                <div class="form-group">
+                                    <p></p>
+                                    <input type="file" name="postImageUp" id="postImageUp">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="GroupId" class="control-label"></label>
+                                    <select asp-for="GroupId" class="form-control" asp-items="ViewBag.GroupId"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="PostSource" class="control-label"></label>
+                                    <input asp-for="PostSource" class="form-control" />
+                                    <span asp-validation-for="PostSource" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="PostContent" class="control-label"></label>
+                                    <textarea asp-for="PostContent" class="form-control" rows="10"></textarea>
+                                    <span asp-validation-for="PostContent" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="افزودن پست" class="btn btn-primary btn-sm" />
+                            <a asp-route="GetPosts" class="btn btn-danger btn-sm">بازگشت</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Styles{
+    <link rel="stylesheet" href="/adminAssets/css/bootstrap-tagsinput.css">
+}
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+    <script src="/adminAssets/js/typeahead.bundle.js"></script>
+    <script src="/adminAssets/js/bootstrap-tagsinput.min.js"></script>
+    <script>
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#PostImage').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#postImageUp").change(function () {
+            readURL(this);
+        });
+
+        var tagsSelect = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+
+        });
+        tagsSelect.initialize();
+
+        $('#tags').tagsinput({
+            typeaheadjs: {
+                name: 'tagsSelect',
+                displayKey: 'name',
+                valueKey: 'name',
+                source: tagsSelect.ttAdapter()
+            }
+        });
+
+
+
+        CKEDITOR.replace('PostContent', {
+            customConfig: '/adminAssets/js/Config.js'
+        });
+        CKEDITOR.config.allowedContent = true;
+
+        var templates = {};
+        templates["Template_1"] = "<h2 class='h3 text-green font-weight-bold py-3'>تیتر H2</h2><p class='h6 text-center rtl px-5 text-secondary line-height-24'>پاراگراف </p><h3 class='h5 text-center text-green font-weight-bold py-3'>تیتر H3</h3><p class='h6 text-center rtl px-5 text-secondary line-height-24'>پاراگراف </p>";
+        templates["Template_2"] = "<h2 class='h3 text-green font-weight-bold py-3'>تیتر H2</h2><p class='h6 text-center rtl px-5 text-secondary line-height-24'>پاراگراف </p><div class='my-3 text-center'><img src='/assets/posts/thumb/defualtImage.jpg' class='img-thumbnail' /></div><h3 class='h5 text-center text-green font-weight-bold py-3'>تیتر H3</h3><p class='h6 text-center rtl px-5 text-secondary line-height-24'>پاراگراف </p><div class='my-3 text-center'><img src='/assets/posts/thumb/defualtImage.jpg' class='img-thumbnail' /></div>";
+        $('#templates').change(function () {
+            var template = $(this).val();
+            CKEDITOR.instances["PostContent"].setData(templates[template]);
+        });
+    </script>
+}
+

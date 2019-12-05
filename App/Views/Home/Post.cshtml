@@ -1,0 +1,81 @@
+﻿@using App.Core.Convertors
+@using App.Domain.Entities.Post
+@model App.Domain.Entities.Post.Post
+
+@{
+    ViewData["Title"] = Html.Raw(TextConvertor.ReplaceLetters(Model.PostTitleInBrowser, '-', ' '));
+    ViewData["Description"] = Html.Raw(Model.PostDescriptionForSearchEngines);
+    ViewData["Canonical"] = Html.Raw(ViewData["SiteAddress"] + "/post/" + Model.PostTitleInBrowser);
+    ViewBag.Url = Html.Raw(ViewData["SiteAddress"] + "/a/" + Model.ShortUrl);
+    ViewBag.Image = ViewData["SiteAddress"] + "/assets/posts/thumb/" + Model.PostImage;
+    ViewData["SiteName"] = ViewBag.SiteName;
+    var tags = ViewData["Tags"] as List<Tag>;
+}
+<div class="bodySection">
+    <div class="pageSection">
+        <div class="ls-container">
+            <div class="pageSection-breadcrumb">
+                <ul>
+                    <li class="breadcrumb-item"><a asp-route="GetIndex">خانه</a></li>
+                    <li class="breadcrumb-item"><a asp-route="GetBlog">بلاگ</a></li>
+                    <li class="breadcrumb-item active">@Html.Raw(TextConvertor.ReplaceLetters(Model.PostTitleInBrowser, '-', ' '))</li>
+                </ul>
+            </div>
+            <div class="pageSection-title">
+                <h1>@Html.Raw(Model.PostTitle)</h1>
+            </div>
+            <div class="pageSection-details">
+                ارسال شده توسط @Html.Raw(Model.User.FirstName) @Html.Raw(Model.User.LastName) | @Html.Raw(Model.PostCreationDate.ToLongShamsiWithWeek())  | @Model.PostVisit بازدید
+            </div>
+            <div class="pageSection-image">
+                <img src="/assets/posts/image/@Model.PostImage"
+                     alt="@Html.Raw(Model.PostTitle)" />
+            </div>
+            <div class="pageSection-social">
+                <div class="social-sharing">
+                    <h3 class="social-title">به اشتراک گذاری این مطلب</h3>
+                    <ul class="social-icons">
+                        <li>
+                            <a href="http://www.facebook.com/share.php?v=4&amp;src=bm&amp;u=@ViewBag.SiteAddress/a/@Html.Raw(Model.ShortUrl)" target="_blank">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://twitter.com/home?status=@ViewBag.SiteAddress/a/@Html.Raw(Model.ShortUrl)" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tg://msg_url?url=@ViewBag.SiteAddress/a/@Html.Raw(Model.ShortUrl)" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pageSection-content">
+                <p class="description">@Html.Raw(Model.PostDescription)</p>
+                @Html.Raw(Model.PostContent)
+            </div>
+            @if (!string.IsNullOrWhiteSpace(Model.PostSource))
+            {
+                <div class="pageSection-source">
+                    منبع :
+                    @Html.Raw(Model.PostSource)
+                </div>
+            }
+            
+            @if (tags.Any())
+            {
+                <div class="pageSection-tags">
+                    @foreach (var postTag in tags)
+                    {
+                    <a href="#" class="tag">@Html.Raw(postTag.TagTitle)</a>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+

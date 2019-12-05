@@ -1,0 +1,155 @@
+﻿@model App.Domain.Entities.Slider.Slider
+@{
+    ViewData["Title"] = "افزودن اسلایدر جدید";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>@ViewData["Title"]</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <a asp-route="GetDashboard">داشبورد</a>
+            <li>
+                @ViewData["Title"]
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@ViewData["Title"]</h5>
+                </div>
+                <div class="ibox-content">
+                    <form asp-route="PostCreateSlider" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="SliderName" class="control-label"></label>
+                                    <input asp-for="SliderName" class="form-control" />
+                                    <span asp-validation-for="SliderName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="SliderTitle1" class="control-label"></label>
+                                    <input asp-for="SliderTitle1" class="form-control" />
+                                    <span asp-validation-for="SliderTitle1" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="SliderTitle2" class="control-label"></label>
+                                    <input asp-for="SliderTitle2" class="form-control" />
+                                    <span asp-validation-for="SliderTitle2" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="SliderTitle3" class="control-label"></label>
+                                    <input asp-for="SliderTitle3" class="form-control" />
+                                    <span asp-validation-for="SliderTitle3" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="SliderButtonText" class="control-label"></label>
+                                    <input asp-for="SliderButtonText" class="form-control" />
+                                    <span asp-validation-for="SliderButtonText" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="SliderButtonLink" class="control-label"></label>
+                                    <input asp-for="SliderButtonLink" class="form-control" />
+                                    <span asp-validation-for="SliderButtonLink" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label style="padding-top: 8px;">
+                                            <input asp-for="IsActive" />
+                                        </label>
+                                        <span style="margin-right: 15px"> فعال باشد؟</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="SliderImage" class="control-label"></label>
+                                </div>
+                                <img id="SliderImage" class="img-half" src="/assets/sliders/no-image.png" alt="image" />
+                                <div class="form-group">
+                                    <p></p>
+                                    <input type="file" name="sliderImageUp" id="sliderImageUp">
+                                    <span asp-validation-for="SliderImage" class="text-danger"></span>
+                                </div>
+                                <div id="app">
+                                    <div class="form-group">
+                                        <label asp-for="SliderType" class="control-label"></label>
+                                        <select class="form-control" v-on:change="slideType = !slideType" asp-for="SliderType">
+                                            <option value="1">دائمی</option>
+                                            <option value="2">بازه زمانی</option>
+                                        </select>
+                                        <span asp-validation-for="SliderType" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group" v-show="slideType">
+                                        <label asp-for="SliderStartTime" class="control-label"></label>
+                                        <div class="input-group">
+                                            <div data-mdpersiandatetimepickershowing="false" title="" data-original-title="" data-mdpersiandatetimepickerselecteddatetime="{&quot;Year&quot;:1393,&quot;Month&quot;:10,&quot;Day&quot;:10,&quot;Hour&quot;:0,&quot;Minute&quot;:0,&quot;Second&quot;:0}" data-enabletimepicker="false" data-mdpersiandatetimepicker="" style="cursor: pointer;" class="input-group-addon" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#exampleInput3">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </div>
+                                            <input data-mdpersiandatetimepickershowing="false" title="" data-original-title="" data-mdpersiandatetimepickerselecteddatetime="{&quot;Year&quot;:1393,&quot;Month&quot;:10,&quot;Day&quot;:11,&quot;Hour&quot;:0,&quot;Minute&quot;:0,&quot;Second&quot;:0}" data-enabletimepicker="false" data-trigger="focus" data-mdpersiandatetimepicker="" class="form-control" name="startTime" placeholder="تاریخ" data-mddatetimepicker="true" data-placement="right" type="text">
+                                        </div>
+                                        <span asp-validation-for="SliderStartTime" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group" v-show="slideType">
+                                        <label asp-for="SliderEndTime" class="control-label"></label>
+                                        <div class="input-group">
+                                            <div data-mdpersiandatetimepickershowing="false" title="" data-original-title="" data-mdpersiandatetimepickerselecteddatetime="{&quot;Year&quot;:1393,&quot;Month&quot;:10,&quot;Day&quot;:10,&quot;Hour&quot;:0,&quot;Minute&quot;:0,&quot;Second&quot;:0}" data-enabletimepicker="false" data-mdpersiandatetimepicker="" style="cursor: pointer;" class="input-group-addon" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#exampleInput3">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </div>
+                                            <input data-mdpersiandatetimepickershowing="false" title="" data-original-title="" data-mdpersiandatetimepickerselecteddatetime="{&quot;Year&quot;:1393,&quot;Month&quot;:10,&quot;Day&quot;:11,&quot;Hour&quot;:0,&quot;Minute&quot;:0,&quot;Second&quot;:0}" data-enabletimepicker="false" data-trigger="focus" data-mdpersiandatetimepicker="" class="form-control" name="endTime" placeholder="تاریخ" data-mddatetimepicker="true" data-placement="right" type="text">
+                                        </div>
+                                        <span asp-validation-for="SliderEndTime" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <br />
+                            <input type="submit" value="افزودن اسلایدر" class="btn btn-primary btn-sm" />
+                            <a asp-route="GetSliders" class="btn btn-danger btn-sm">بازگشت</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section styles{
+    <link href="~/css/jquery.Bootstrap-PersianDateTimePicker.css" rel="stylesheet" />
+}
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/calendar.js"></script>
+    <script src="~/js/jquery.Bootstrap-PersianDateTimePicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#SliderImage').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#sliderImageUp").change(function () {
+            readURL(this);
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                slideType: false
+            }
+        });
+    </script>
+}

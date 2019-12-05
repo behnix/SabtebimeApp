@@ -1,0 +1,83 @@
+﻿@using App.Core.Convertors
+@model IEnumerable<App.Domain.Entities.Page.Page>
+@{
+    ViewData["Title"] = "لیست صفحات";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>@ViewData["Title"]</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <a asp-route="GetDashboard">داشبورد</a>
+            <li>
+                @ViewData["Title"]
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <a asp-route="GetCreatePage" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>  افزودن صفحه جدید</a>
+                </div>
+                <div class="ibox-title">
+                    <h5>@ViewData["Title"]</h5>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    عنوان صفحه
+                                </th>
+                                <th>
+                                    تاریخ ایجاد
+                                </th>
+                                <th>
+                                    بازدید
+                                </th>
+                                <th>
+                                    لینک کوتاه
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ var i = 1;}
+                            @foreach (var item in Model.OrderByDescending(p => p.PageId))
+                            {
+                                <tr>
+                                    <td class="pt-20">
+                                        @(i++)
+                                    </td>
+                                    <td class="pt-20">
+                                        @Html.DisplayFor(modelItem => item.PageTitle)
+                                    </td>
+                                    <td class="pt-20">
+                                        @item.PageCreateDate.ToShamsi()
+                                    </td>
+                                    <td class="pt-20">
+                                        @Html.DisplayFor(modelItem => item.PageVisit)
+                                    </td>
+                                    <td class="pt-20 text-right" style="direction: ltr !important">
+                                        /p/@item.PageShortUrl
+                                    </td>
+                                    <td class="pt-15">
+                                        <a href="/p/@item.PageShortUrl" target="_blank" class="btn btn-info btn-sm"> مشاهده </a>
+                                        <a asp-route="GetEditPage" asp-route-id="@item.PageId" class="btn btn-warning btn-sm"> ویرایش</a>
+                                        <a asp-route="GetRemovePage" asp-route-id="@item.PageId" class="btn btn-danger btn-sm"> حذف</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

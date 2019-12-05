@@ -1,0 +1,101 @@
+﻿@model App.Domain.Entities.Setting.Setting
+@{
+    ViewData["Title"] = "تماس با ما";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>@ViewData["Title"]</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <a asp-route="GetDashboard">داشبورد</a>
+            <li>
+                @ViewData["Title"]
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@ViewData["Title"]</h5>
+                </div>
+                <div class="ibox-content">
+                    <form asp-route="PostEditContact">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="SettingId" />
+                        <input type="hidden" asp-for="SiteName" />
+                        <input type="hidden" asp-for="SiteDescription" />
+                        <input type="hidden" asp-for="SiteCopyRightText" />
+                        <input type="hidden" asp-for="TermsTitle" />
+                        <input type="hidden" asp-for="TermsDescription" />
+                        <input type="hidden" asp-for="FaqTitle" />
+                        <input type="hidden" asp-for="FaqDescription" />
+                        <input type="hidden" asp-for="AboutUsTitle" />
+                        <input type="hidden" asp-for="AboutUsDescription" />
+
+                        <div class="form-group">
+                            <label asp-for="ContactTitle" class="control-label"></label>
+                            <input asp-for="ContactTitle" class="form-control" />
+                            <span asp-validation-for="ContactTitle" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ContactDescription" class="control-label"></label>
+                            <textarea asp-for="ContactDescription" rows="3" class="form-control"></textarea>
+                            <span asp-validation-for="ContactDescription" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SiteTel" class="control-label"></label>
+                            <input asp-for="SiteTel" class="form-control" />
+                            <span asp-validation-for="SiteTel" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SiteEmail" class="control-label"></label>
+                            <input asp-for="SiteEmail" class="form-control" />
+                            <span asp-validation-for="SiteEmail" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SiteAddress" class="control-label"></label>
+                            <input asp-for="SiteAddress" class="form-control" />
+                            <span asp-validation-for="SiteAddress" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SiteTelegramId" class="control-label"></label>
+                            <input asp-for="SiteTelegramId" class="form-control" />
+                            <span asp-validation-for="SiteTelegramId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SiteInstagramId" class="control-label"></label>
+                            <input asp-for="SiteInstagramId" class="form-control" />
+                            <span asp-validation-for="SiteInstagramId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SiteTwitterId" class="control-label"></label>
+                            <input asp-for="SiteTwitterId" class="form-control" />
+                            <span asp-validation-for="SiteTwitterId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SiteFacebookId" class="control-label"></label>
+                            <input asp-for="SiteFacebookId" class="form-control" />
+                            <span asp-validation-for="SiteFacebookId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ContactWorkHour" class="control-label"></label>
+                            <input asp-for="ContactWorkHour" class="form-control" />
+                            <span asp-validation-for="ContactWorkHour" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="ثبت تغییرات" class="btn btn-primary btn-sm" />
+                            <a asp-route="GetDashboard" class="btn btn-danger btn-sm">بازگشت</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
